@@ -311,11 +311,12 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Rottenkolber]
+  first_name: [Alexandra]
 
   style: apa
   locale: en
+  html: true # I added this to be able to make my name bold.
 
   source: /_bibliography/
   bibliography: papers.bib
