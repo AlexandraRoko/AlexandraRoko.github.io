@@ -17,9 +17,12 @@ news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
-Hello! I am PhD Student in Computational Social Sciences/Analytical Sociology at the [Institute for Analytical Sociology](https://liu.se/en/organisation/liu/iei/ias), Linköping University, Sweden. In my thesis
-In my past work, I have used a variety of methodological approaches — ranging from natural language processing to network analysis — to study attention dynamics in parliaments, the digital development of nations, as well as gendered patterns of behaviour online. In my PhD I plan to extend and build on this existing work. 
+Hello and welcome to my website! 
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I am PhD Student in Computational Social Sciences/Analytical Sociology at the Institute for Analytical Sociology, Linköping University, Sweden.
 
+My past projects have combined different methods, such as natural language processing, social network analysis, and agent-based modelling, to study attention dynamics in the German parliament, how nations digitize over time, and how gender shapes online interaction. In my dissertation, I focus on the emergence and reproduction of occupational gender segregation --- using the amazing Swedish full-population register data and computational methods to get at the mechanisms that occupational sorting in the labour market. Furthermore, I have a project on scholary mobility and how a scholar's embedding ultimatly sturctures their opportunity space. 
 
+When I’m not coding, reading or writing, you can find me hiking on Sweden’s lakeshore trails or growing plants. Feel free to [download my CV](/cv/) or get in touch with me at alexandra.rottenkolber@liu.se.
+
+Would be happy to read from you 😊
