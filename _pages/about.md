@@ -7,12 +7,12 @@ subtitle: <a href='https://liu.se/en/organisation/liu/iei/ias'>Institute for Ana
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  #more_info: #>
-   # <p>555 your office number</p>
-   # <p>123 your address street</p>
-   # <p>Your City, State 12345</p>
-
+  image_circular: true # crops the image to make it circular
+  more_info: >
+    <p>PhD student in Analytical Sociology</p>
+    <p>Instiute for Analytical Sociology (IAS)</p>
+    <p>Norrköping, Sweden</p>
+    
 news: true # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
