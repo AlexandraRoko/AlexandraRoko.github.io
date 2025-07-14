@@ -5,7 +5,7 @@ title: cv
 nav: true
 nav_order: 5
 cv_pdf:  Rottenkolber_CV_Website.pdf
-description: #This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
+description: For the extended CV, please download the PDF (click on icon in the upper right corner).
 toc:
   sidebar: left
 ---
