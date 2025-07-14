@@ -1,34 +1,34 @@
-"takacs":
-  - firstname: ["Takács"]
-    url: https://liu.se/en/employee/karta65
+"adams":
+  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
+    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
 
-"branden":
-  - firstname: ["Maria"]
-    url: https://liu.se/en/employee/marbr31
+"podolsky":
+  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
+    url: https://en.wikipedia.org/wiki/Boris_Podolsky
 
-"arvidsson":
-  - firstname: ["Martin"]
-    url: https://martin-arvidsson.github.io/
+"rosen":
+  - firstname: ["Nathan", "N."]
+    url: https://en.wikipedia.org/wiki/Nathan_Rosen
 
-"ali":
-  - firstname: ["Ola"]
-    url: https://olamegahead.wixsite.com/ola-ali
+"bach":
+  - firstname: ["Johann Sebastian", "J. S."]
+    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
 
   - firstname: ["Carl Philipp Emanuel", "C. P. E."]
     url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
 
-"monus":
-  - firstname: ["Gergely"]
-    url: https://anet.krtk.mta.hu/researchers/gergely-monus/
+"przibram":
+  - firstname: ["Karl"]
+    url: https://link.springer.com/article/10.1007/s00016-019-00242-z
 
-"kim":
-  - firstname: ["Jisu"]
-    url: https://www.uu.nl/staff/JKim
+"schrodinger":
+  - firstname: ["Erwin"]
+    url: https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger
 
-"perotta":
-  - firstname: ["Daniela"]
-    url: https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/daniela_perrotta_3932/
+"lorentz":
+  - firstname: ["Hendrik Antoon"]
+    url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
 
-"akbaritabar":
-  - firstname: ["Aliakbar"]
-    url: https://akbaritabar.github.io/
+"planck":
+  - firstname: ["Max"]
+    url: https://en.wikipedia.org/wiki/Max_Planck
