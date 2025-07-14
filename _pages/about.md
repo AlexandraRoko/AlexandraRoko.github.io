@@ -11,7 +11,7 @@ profile:
   more_info: >
     <p>PhD student in Analytical Sociology</p>
     <p>Instiute for Analytical Sociology (IAS)</p>
-    <p>Norrköping, Sweden</p>
+    <p>:round_pushpin: Norrköping, Sweden</p>
     
 news: true # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
@@ -31,4 +31,4 @@ or get in touch with me at
 <a href="mailto:alexandra.rottenkolber@liu.se">alexandra.rottenkolber@liu.se</a>.
  </p>
  
-Would be happy to read from you! 😊
+Would be happy to read from you! :relaxed:
