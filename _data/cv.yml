@@ -1,0 +1,29 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Alexandra Rottenkolber
+    #- name: Date of Birth
+    #  value: 14th March 1879
+    - name: Languages
+      value: English, German
+
+- title: Education
+  type: time_table
+  contents:
+    - title: PhD
+      institution: Institute for Analytical Sociology, Linköping University, Sweden
+      year: 2022 -- 
+      description:
+        - Work on labour market dynamics by studying worker flows between workplaces and occupations combined
+        - Work on the mobility of scholars
+    - title: MSC Social Data Science
+      institution: Oxford University, UK
+      year: 2020 - 2021
+    - title: MPP Public Policy 
+      institution: Hertie School, Berlin, Germany
+      year: 2019 - 2022
+    - title: BSc Physics and Geography
+      institution: Heidelberg University, Germany
+      year: 2014 - 2018
+
