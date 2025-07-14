@@ -23,6 +23,10 @@ I'm a trained Social Data Scientist (@Oxford) and have a background in Public Po
 
 My past projects have combined different methods, such as natural language processing, social network analysis, and agent-based modelling, to study attention dynamics in the German parliament, how nations digitize over time, and how gender shapes online interaction. In my dissertation, I focus on the emergence and reproduction of occupational gender segregation --- using the amazing Swedish full-population register data and computational methods to get at the mechanisms that occupational sorting in the labour market. Furthermore, I have a project on scholary mobility and how a scholar's embedding ultimatly sturctures their opportunity space. 
 
-When I’m not coding, reading or writing, you can find me hiking on Sweden’s lakeshore trails or growing plants. Feel free to [download my CV](/cv/) or get in touch with me at alexandra.rottenkolber@liu.se.
+When I’m not coding, reading or writing, you can find me hiking on Sweden’s lakeshore trails or growing plants. Feel free to [download my CV](/cv/) or
+ <p>
+<a href="{{ '/assets/pdf/Rottenkolber_CV_Website.pdf' | relative_url}}">Download the PDF instead</a>
+ </p>
+ or get in touch with me at alexandra.rottenkolber@liu.se.
 
 Would be happy to read from you 😊
