@@ -14,11 +14,11 @@ toc:
 ## My CV
 
 <object
-  data="{{ 'Rottenkolber_CV_Website.pdf' }}"
+  data="{{ '/assets/pdf/Rottenkolber_CV_Website.pdf' | relative_url}}"
   type="application/pdf"
   width="100%"
   height="800px">
   <p>Your browser does not support embedded PDFs.
-     <a href="{{ 'Rottenkolber_CV_Website.pdf' }}">Download the PDF instead</a>.
+     <a href="{{ '/assets/pdf/Rottenkolber_CV_Website.pdf' | relative_url}}">Download the PDF instead</a>.
   </p>
 </object>
