@@ -1,9 +1,8 @@
 ---
 layout: post
-title: A long announcement with details
-date: 2025-07-14 
+date: 2025-07-01
 inline: true
 related_posts: false
 ---
 
-I will be presenting at IC2S2 2025 @Linköping University, Norrköping, Sweden. -- Find me on Thrusday in the Session on Inequality & Segregation I, Posters III, and Health & Quality of Life II.
+Finally official and in the bag: I am going to visiting [Prof. Michael Macy](https://sociology.cornell.edu/michael-macy) and his [Social Dynamics Lab](https://sdl.as.cornell.edu/) at the Cornell University from August to December 2025. More than excited about this stay. Feel free to reach out if you are in Ithaca!
