@@ -22,7 +22,9 @@ Hello and welcome to my website!
 
 I'm a trained Social Data Scientist (@Oxford) and have a background in Public Policy (@Berlin), Physics (@Heidelberg) and Geography (@Heidelberg), too. Currently, I am doing my PhD studies in Computational Social Sciences/Analytical Sociology at the Institute for Analytical Sociology, Linköping University, Sweden.
 
-My past projects have combined different methods, such as natural language processing, social network analysis, and agent-based modelling, to study attention dynamics in the German parliament, how nations digitize over time, and how gender shapes online interaction. In my dissertation, I focus on the emergence and reproduction of occupational gender segregation --- using the amazing Swedish full-population register data and computational methods to get at the mechanisms that occupational sorting in the labour market. Furthermore, I have a project on scholary mobility and how a scholar's embedding ultimatly sturctures their opportunity space. 
+My past projects have combined different methods, such as natural language processing, social network analysis, and agent-based modelling, to study policy making in the German parliament, how nations digitize over time, and how gender shapes online interaction. In my dissertation, I focus on the emergence and reproduction of occupational gender segregation --- using the amazing Swedish full-population register data and computational methods to get at the mechanisms that occupational sorting in the labour market. Furthermore, I have a project on scholary mobility and how a scholar's personal and institutional embedding ultimatly sturctures their opportunity space. 
+
+I am supervised by [Károly Takács](https://liu.se/en/employee/karta65) and [Martin Arvidsson](https://martin-arvidsson.github.io/).
 
  <p>
  When I’m not coding, reading or writing, you can find me hiking on Sweden’s lakeshore trails or growing plants. Feel free to
