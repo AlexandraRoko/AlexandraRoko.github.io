@@ -358,7 +358,7 @@ filtered_bibtex_keywords:
     blog,
     code,
     html,
-    pdf,
+    #pdf,
     poster,
     preview,
     selected,
