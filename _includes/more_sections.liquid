@@ -1,0 +1,68 @@
+<!-- Unfolding sections — CV, Talks, Teaching, Code.
+     Rendered full-width below the bio grid (see _layouts/about.liquid). -->
+<section class="more-sections">
+
+  <details id="cv">
+    <summary>
+      <span class="summary-text">
+        Curriculum vitae
+        <a class="cv-pdf-link"
+           href="{{ '/assets/pdf/Rottenkolber_CV_Website.pdf' | relative_url }}"
+           target="_blank" rel="noopener"
+           onclick="event.stopPropagation()"
+           title="Download CV as PDF"
+           aria-label="Download CV as PDF">
+          <i class="fa-solid fa-file-pdf"></i><span class="pdf-label">PDF</span>
+        </a>
+      </span>
+    </summary>
+    <div class="details-body">
+      {% include cv_content.liquid %}
+    </div>
+  </details>
+
+  <details id="talks">
+    <summary><span class="summary-text">Selected talks &amp; presentations</span></summary>
+    <div class="details-body">
+      <p class="details-meta"><em>To be added.</em></p>
+    </div>
+  </details>
+
+  <details id="teaching">
+    <summary><span class="summary-text">Teaching</span></summary>
+    <div class="details-body">
+      <p class="details-meta"><em>To be added.</em></p>
+    </div>
+  </details>
+
+  <details id="code">
+    <summary><span class="summary-text">Code</span></summary>
+    <div class="details-body">
+      <p>Most of my code lives on GitHub —
+        <a href="https://github.com/AlexandraRoko" target="_blank" rel="noopener">github.com/AlexandraRoko ↗</a>.
+      </p>
+    </div>
+  </details>
+
+</section>
+
+<script>
+// Open the targeted <details> when the page is opened with a hash (e.g. /#cv),
+// then re-scroll because opening changes the page height.
+(function () {
+  function handleHash() {
+    var hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    var el;
+    try { el = document.querySelector(hash); } catch (e) { return; }
+    if (!el) return;
+    var details = el.closest ? el.closest('details') : null;
+    if (details && !details.open) details.open = true;
+    setTimeout(function () {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  }
+  window.addEventListener('hashchange', handleHash);
+  window.addEventListener('load', handleHash);
+})();
+</script>

@@ -110,15 +110,64 @@ a.btncv,
   }
 }
 
+// ---------- Bio area: proper 2-column grid (bio content + profile aside) ----------
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(220px, 28%, 290px);
+  column-gap: 2.5rem;
+  align-items: start;
+  margin: 1rem 0 2.5rem;
+
+  // Profile column — replaces the old float-based layout
+  > .profile {
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--global-divider-color);
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .more-info {
+      margin-top: 0.85rem;
+      font-family: $font-sans;        // was monospace — match site
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: var(--global-text-color-light);
+
+      p {
+        display: block !important;    // one line each, not inline-block
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Collapse to single column on narrow screens
+@media (max-width: 720px) {
+  .bio-grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 1.5rem;
+
+    > .profile {
+      max-width: 240px;
+    }
+  }
+}
+
 // ---------- Profile bio — skim-friendly labeled rows ----------
 
 .profile-lede {
   font-size: 1.2rem;
   line-height: 1.45;
   color: var(--global-text-color);
-  margin: 0.4rem 0 1.6rem;
+  margin: 0.4rem 0 1.8rem;
   letter-spacing: -0.005em;
-  max-width: 44rem;
 }
 
 .profile-rows {
@@ -127,8 +176,6 @@ a.btncv,
   column-gap: 1.8rem;
   row-gap: 1rem;
   margin: 1.4rem 0 0;
-  max-width: 44rem;
-  clear: both; // ensure the grid starts below the float photo
 
   dt {
     font-size: 0.78rem;
@@ -158,7 +205,6 @@ a.btncv,
   color: var(--global-text-color-light);
   font-size: 0.9rem;
   font-style: italic;
-  max-width: 44rem;
 }
 
 // Stack to a single column on small screens
