@@ -19,7 +19,7 @@ social: true
 ---
 
 <p class="profile-lede">
-I study how labour markets sort people into occupations — and why those sorts so reliably break along gender lines.
+I study labour markets, specifically the ways people sort into occupations - and the roles that employers, employee preferences and opportunities play.
 </p>
 
 <dl class="profile-rows">
@@ -33,12 +33,11 @@ I study how labour markets sort people into occupations — and why those sorts 
   <dd>MSc Social Data Science (<a href="https://www.oii.ox.ac.uk/">Oxford</a>) · MPP Public Policy (Berlin) · BSc Physics + Geography (Heidelberg)</dd>
 
   <dt>Supervised by</dt>
-  <dd><a href="https://liu.se/en/employee/karta65">Károly Takács</a> · <a href="https://martin-arvidsson.github.io/">Martin Arvidsson</a></dd>
+  <dd><a href="https://liu.se/en/employee/karta65">Károly Takács</a> · <a href="https://martin-arvidsson.github.io/">Martin Arvidsson</a> · <a href="https://sociology.cornell.edu/michael-macy">Michael Macy</a></dd>
 
   <dt>Get in touch</dt>
   <dd><a href="mailto:alexandra.rottenkolber@liu.se">alexandra.rottenkolber@liu.se</a> · <a href="{{ '/assets/pdf/Rottenkolber_CV_Website.pdf' | relative_url }}">download CV (PDF)</a></dd>
 </dl>
 
 <p class="profile-offhours">
-When I'm not coding, reading, or writing, I'm usually out on a lakeshore trail or tending to plants.
 </p>
