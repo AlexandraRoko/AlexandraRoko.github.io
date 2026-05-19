@@ -18,9 +18,9 @@
     --women:#3a7773;       /* muted teal — works with cream + navy */
     --men:#c89070;         /* terracotta */
     --line-int:#a8a8a3;    /* light grey — "integrated workplaces" line (baseline) */
-    --line-seg:#1f3a5f;    /* deep navy — "segregated workplaces" line (the finding) */
-    --shield:#1f3a5f;      /* website navy — shielding band + accents */
-    --shield-soft:rgba(31,58,95,.13);
+    --line-seg:#3d6394;    /* deep navy — "segregated workplaces" line (the finding) */
+    --shield:#3d6394;      /* website navy — shielding band + accents */
+    --shield-soft:rgba(61,99,148,.13);
   }
   *{box-sizing:border-box}
   html,body{margin:0}
@@ -45,7 +45,7 @@
     line-height:1.08;letter-spacing:-.012em;margin:0 0 14px;
   }
   h1 em{font-style:italic;color:var(--shield)}
-  .lede{font-size:16.5px;color:var(--muted);max-width:62ch;margin:0}
+  .lede{font-size:16.5px;color:var(--muted);margin:0}
   .rule{height:1px;background:var(--line);margin:30px 0 26px}
 
   /* ---- controls ---- */
@@ -128,7 +128,7 @@
   #chart{width:100%;display:block}
   .verdict{
     margin-top:14px;padding:13px 16px;border-radius:9px;
-    background:var(--shield-soft);border:1px solid rgba(31,58,95,.25);
+    background:var(--shield-soft);border:1px solid rgba(61,99,148,.25);
     font-size:14.5px;
   }
   .verdict b{color:var(--shield)}
@@ -234,7 +234,7 @@
     <div class="legend">
       <span><span class="dash" style="color:var(--line-int)"></span>Integrated workplaces</span>
       <span><span class="dash" style="color:var(--line-seg)"></span>Segregated workplaces</span>
-      <span><span class="swatch" style="background:var(--shield-soft);border:1px solid rgba(31,58,95,.32)"></span>Shielding effect (the gap)</span>
+      <span><span class="swatch" style="background:var(--shield-soft);border:1px solid rgba(61,99,148,.32)"></span>Shielding effect (the gap)</span>
       <span><span class="swatch" style="background:var(--women)"></span>Women</span>
       <span><span class="swatch" style="background:var(--men)"></span>Men</span>
     </div>
@@ -447,7 +447,7 @@ const ctxC = chart.getContext("2d");
 
 const COL = {
   women:"#3a7773", men:"#c89070",
-  lineInt:"#a8a8a3", lineSeg:"#1f3a5f", shield:"#1f3a5f",
+  lineInt:"#a8a8a3", lineSeg:"#3d6394", shield:"#3d6394",
   ink:"#1a1a1a", line:"#e6e4dd", muted:"#6b6b6b",
   panel:"#ffffff"
 };
@@ -584,7 +584,7 @@ function drawChart(){
     for(let t=0;t<nPts;t++){ const x=X(t),y=Y(hi[t]); t?ctx.lineTo(x,y):ctx.moveTo(x,y); }
     for(let t=nPts-1;t>=0;t--){ ctx.lineTo(X(t),Y(hs[t])); }
     ctx.closePath();
-    ctx.fillStyle="rgba(31,58,95,0.13)";
+    ctx.fillStyle="rgba(61,99,148,0.13)";
     ctx.fill();
     // integrated line
     drawLine(ctx,hi,nPts,X,Y,COL.lineInt,2.4);
