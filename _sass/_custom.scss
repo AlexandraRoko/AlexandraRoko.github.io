@@ -67,19 +67,47 @@ pre {
 }
 
 // ---------- Links ----------
+// One consistent treatment for body links: accent color + underline,
+// always visible. Hover slightly thickens the underline.
 
 a,
 table.table a {
   color: var(--global-theme-color);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.15s ease;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--global-theme-color);
+  border-bottom: none;
+  transition: text-decoration-thickness 0.15s ease, color 0.15s ease;
 
   &:hover {
     color: var(--global-theme-color);
-    text-decoration: none;
-    border-bottom-color: var(--global-theme-color);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
   }
+}
+
+// Exceptions: places where the always-on underline would be visual noise.
+// These get a hover-only underline (or no underline at all).
+.navbar a,
+.navbar-brand,
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+.post-header .desc a,
+.publications .links a.btn,
+.publications .author a,
+.publications .abbr abbr a,
+.social a,
+.contact-icons a,
+.preview-link,
+.cv-pdf-link,
+a.btn,
+a.btncv,
+footer a,
+.more-sections details summary,
+.more-sections details summary a,
+.news .news-title {
+  text-decoration: none;
+  border-bottom: none;
 }
 
 // ---------- Profile / about header ----------
@@ -151,19 +179,25 @@ table.table a {
     letter-spacing: 0.01em;
     padding-left: 0.9rem;
     padding-right: 0.9rem;
-    border-bottom: 1px solid transparent;
+    color: var(--global-text-color) !important;
+    text-decoration: none !important;
     border-radius: 0;
-    transition: border-color 0.15s ease;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
 
     &:hover {
-      border-bottom-color: var(--global-theme-color);
+      color: var(--global-theme-color) !important;
+      text-decoration: underline !important;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 6px;
+      text-decoration-color: var(--global-theme-color);
     }
   }
 
   .navbar-nav .nav-item.active > .nav-link {
     font-weight: 500;
-    color: var(--global-text-color) !important;
-    border-bottom-color: var(--global-theme-color);
+    color: var(--global-theme-color) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 6px;
   }
 }
 
@@ -437,6 +471,9 @@ pre {
         display: inline-flex;
         align-items: center;
         gap: 0.9rem;
+        // Pull the visible title text out of the flex into a pseudo so
+        // we can underline only the title, not the nested PDF chip.
+        transition: color 0.15s ease, text-decoration-color 0.15s ease;
       }
 
       // Inline PDF link in the CV section header
@@ -480,7 +517,14 @@ pre {
       }
 
       &:hover {
-        color: var(--global-text-color);
+        color: var(--global-theme-color);
+
+        .summary-text {
+          color: var(--global-theme-color);
+          text-decoration: underline;
+          text-decoration-thickness: 1.5px;
+          text-underline-offset: 5px;
+        }
 
         &::after {
           color: var(--global-theme-color);

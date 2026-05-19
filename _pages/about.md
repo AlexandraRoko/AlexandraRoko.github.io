@@ -54,21 +54,21 @@ When I'm not coding, reading, or writing, I'm usually out on a lakeshore trail o
 </details>
 
 <details id="talks">
-  <summary>Selected talks &amp; presentations</summary>
+  <summary><span class="summary-text">Selected talks &amp; presentations</span></summary>
   <div class="details-body">
     <p class="details-meta"><em>To be added.</em></p>
   </div>
 </details>
 
 <details id="teaching">
-  <summary>Teaching</summary>
+  <summary><span class="summary-text">Teaching</span></summary>
   <div class="details-body">
     <p class="details-meta"><em>To be added.</em></p>
   </div>
 </details>
 
 <details id="code">
-  <summary>Code</summary>
+  <summary><span class="summary-text">Code</span></summary>
   <div class="details-body">
     <p>Most of my code lives on GitHub —
       <a href="https://github.com/AlexandraRoko" target="_blank" rel="noopener">github.com/AlexandraRoko ↗</a>.
