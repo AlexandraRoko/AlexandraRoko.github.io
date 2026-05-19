@@ -34,7 +34,7 @@ When I'm not coding, reading, or writing, I'm usually out on a lakeshore trail o
 
 <section class="more-sections" markdown="0">
 
-<details>
+<details id="cv">
   <summary>
     <span class="summary-text">
       Curriculum vitae
@@ -53,21 +53,21 @@ When I'm not coding, reading, or writing, I'm usually out on a lakeshore trail o
   </div>
 </details>
 
-<details>
+<details id="talks">
   <summary>Selected talks &amp; presentations</summary>
   <div class="details-body">
     <p class="details-meta"><em>To be added.</em></p>
   </div>
 </details>
 
-<details>
+<details id="teaching">
   <summary>Teaching</summary>
   <div class="details-body">
     <p class="details-meta"><em>To be added.</em></p>
   </div>
 </details>
 
-<details>
+<details id="code">
   <summary>Code</summary>
   <div class="details-body">
     <p>Most of my code lives on GitHub —
@@ -77,3 +77,24 @@ When I'm not coding, reading, or writing, I'm usually out on a lakeshore trail o
 </details>
 
 </section>
+
+<script>
+// Open the targeted <details> when the page is opened with a hash (e.g. /#cv),
+// then re-scroll because opening changes the page height.
+(function () {
+  function handleHash() {
+    var hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    var el;
+    try { el = document.querySelector(hash); } catch (e) { return; }
+    if (!el) return;
+    var details = el.closest ? el.closest('details') : null;
+    if (details && !details.open) details.open = true;
+    setTimeout(function () {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  }
+  window.addEventListener('hashchange', handleHash);
+  window.addEventListener('load', handleHash);
+})();
+</script>
