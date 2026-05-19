@@ -3,6 +3,9 @@
 ---
 @charset "utf-8";
 
+// Inter — self-hosted via Google Fonts CDN. Loaded with display=swap.
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
 // Dimensions
 $max-content-width: {{ site.max_width }};
 
@@ -21,5 +24,6 @@ $max-content-width: {{ site.max_width }};
   "font-awesome/regular",
   "tabler-icons/tabler-icons.scss",
   "tabler-icons/tabler-icons-filled.scss",
-  "tabler-icons/tabler-icons-outline.scss"
+  "tabler-icons/tabler-icons-outline.scss",
+  "custom"
 ;

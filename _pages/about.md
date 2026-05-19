@@ -2,35 +2,26 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://liu.se/en/organisation/liu/iei/ias'>Institute for Analytical Sociology</a>, Linköping University, Sweden.
+subtitle: PhD candidate · <a href='https://liu.se/en/organisation/liu/iei/ias'>Institute for Analytical Sociology</a>, Linköping University.
 
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: true # crops the image to make it circular
+  image_circular: false
   more_info: >
-    <p>PhD student in Analytical Sociology</p>
-    <p>Instiute for Analytical Sociology (IAS)</p>
-    <p> Norrköping, Sweden</p>
-    
-news: true # includes a list of news items
-selected_papers: false # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+    <p>Institute for Analytical Sociology</p>
+    <p>Linköping University</p>
+    <p>Norrköping, Sweden</p>
+
+news: true
+selected_papers: false
+social: true
 ---
 
-Hello and welcome to my website! 
+I study how labour markets sort people into occupations — and why those sorts so reliably break along gender lines. My dissertation uses Swedish full-population register data and computational methods to get at the mechanisms behind occupational gender segregation. A second strand of my work looks at scholarly mobility: how a researcher's personal and institutional embedding shapes the opportunity space they move through.
 
-I'm a trained Social Data Scientist (@Oxford) and have a background in Public Policy (@Berlin), Physics (@Heidelberg) and Geography (@Heidelberg), too. Currently, I am doing my PhD studies in Computational Social Sciences/Analytical Sociology at the Institute for Analytical Sociology, Linköping University, Sweden.
+I'm a trained social data scientist ([Oxford](https://www.oii.ox.ac.uk/)) with earlier degrees in public policy (Berlin) and physics and geography (Heidelberg). My past projects combined NLP, social network analysis, and agent-based modelling to study policymaking in the German parliament, how nations digitize over time, and how gender shapes online interaction.
 
-My past projects have combined different methods, such as natural language processing, social network analysis, and agent-based modelling, to study policy making in the German parliament, how nations digitize over time, and how gender shapes online interaction. In my dissertation, I focus on the emergence and reproduction of occupational gender segregation --- using the amazing Swedish full-population register data and computational methods to get at the mechanisms that occupational sorting in the labour market. Furthermore, I have a project on scholary mobility and how a scholar's personal and institutional embedding ultimatly sturctures their opportunity space. 
+I'm supervised by [Károly Takács](https://liu.se/en/employee/karta65) and [Martin Arvidsson](https://martin-arvidsson.github.io/).
 
-I am supervised by [Károly Takács](https://liu.se/en/employee/karta65) and [Martin Arvidsson](https://martin-arvidsson.github.io/).
-
- <p>
- When I’m not coding, reading or writing, you can find me hiking on Sweden’s lakeshore trails or growing plants. Feel free to
-<a href="{{ '/assets/pdf/Rottenkolber_CV_Website.pdf' | relative_url}}">download my CV</a>
-or get in touch with me at 
-<a href="mailto:alexandra.rottenkolber@liu.se">alexandra.rottenkolber@liu.se</a>.
- </p>
- 
-Would be happy to read from you! :relaxed:
+When I'm not coding, reading, or writing, I'm usually out on a lakeshore trail or tending to plants. You can [download my CV](/assets/pdf/Rottenkolber_CV_Website.pdf) or reach me at <a href="mailto:alexandra.rottenkolber@liu.se">alexandra.rottenkolber@liu.se</a>.

@@ -31,6 +31,20 @@ $grey-900: #212529;
 $white-color: #ffffff !default;
 $black-color: #000000 !default;
 
+// ----- Swiss-minimalist palette (added 2026-05) -----
+// Quiet navy / ink-blue accent, warm cream paper, charcoal ink.
+$paper-color: #fafaf7 !default;        // warm cream background
+$paper-color-dark: #16181c !default;   // dark-mode counterpart
+$ink-color: #1a1a1a !default;          // primary text (charcoal, not pure black)
+$ink-color-muted: #6b6b6b !default;    // secondary text, meta, dates
+$accent-color: #2c4a6b !default;       // quiet navy / ink-blue
+$accent-color-dark: #7da3c9 !default;  // dark-mode accent (lighter for contrast)
+$hairline-color: rgba(0, 0, 0, 0.08) !default; // dividers, borders
+
+// Font stack
+$font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace !default;
+
 // Theme colors
 
 $code-bg-color-light: rgba(#1c94a4, 0.05);

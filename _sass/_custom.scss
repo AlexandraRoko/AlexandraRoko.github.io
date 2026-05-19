@@ -1,0 +1,400 @@
+/******************************************************************************
+ * Custom: Swiss-minimalist overrides.
+ * Loaded last in main.scss so these rules win.
+ * Touchpoints: typography, profile, navbar, news, publications, footer.
+ ******************************************************************************/
+
+// ---------- Typography ----------
+
+html,
+body {
+  font-family: $font-sans;
+  font-feature-settings: "ss01", "cv11"; // Inter stylistic alternates if available
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+
+p {
+  margin-bottom: 1.1rem;
+}
+
+// Strict, confident hierarchy. Limit weight contrast — Swiss style uses scale + space.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-sans;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 2.2rem;
+  margin-bottom: 0.9rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--global-text-color-light);
+  margin-top: 3rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+code,
+pre {
+  font-family: $font-mono;
+  font-size: 0.9em;
+}
+
+// ---------- Links ----------
+
+a,
+table.table a {
+  color: var(--global-theme-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    color: var(--global-theme-color);
+    text-decoration: none;
+    border-bottom-color: var(--global-theme-color);
+  }
+}
+
+// ---------- Profile / about header ----------
+
+.post-header {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  .post-title {
+    font-size: 2.6rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.4rem;
+
+    .font-weight-bold {
+      font-weight: 600; // override Bootstrap's bold extreme
+    }
+  }
+
+  .desc {
+    font-size: 1rem;
+    color: var(--global-text-color-light);
+    margin-bottom: 0;
+  }
+}
+
+// Square the profile pic, strip the drop shadow.
+.profile {
+  img {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    filter: none;
+  }
+
+  .more-info {
+    font-family: $font-sans;
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+    margin-top: 0.75rem;
+
+    p {
+      margin-bottom: 0.15rem;
+      line-height: 1.5;
+    }
+  }
+}
+
+// ---------- Navbar ----------
+
+.navbar {
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--global-divider-color);
+  background-color: var(--global-bg-color) !important;
+  opacity: 1;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.navbar.navbar-light {
+  .navbar-brand {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    font-size: 0.92rem;
+    font-weight: 400;
+    text-transform: lowercase;
+    letter-spacing: 0.01em;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+    transition: border-color 0.15s ease;
+
+    &:hover {
+      border-bottom-color: var(--global-theme-color);
+    }
+  }
+
+  .navbar-nav .nav-item.active > .nav-link {
+    font-weight: 500;
+    color: var(--global-text-color) !important;
+    border-bottom-color: var(--global-theme-color);
+  }
+}
+
+// ---------- News list (clean typographic rows, no table chrome) ----------
+
+.news {
+  margin-top: 0.5rem;
+
+  table {
+    th,
+    td {
+      border: none;
+      padding: 0.55rem 1rem 0.55rem 0;
+      vertical-align: top;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    th {
+      font-weight: 400;
+      color: var(--global-text-color-light);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    tr {
+      border-top: 1px solid var(--global-divider-color);
+    }
+
+    tr:first-child {
+      border-top: none;
+    }
+  }
+}
+
+// ---------- Social icons (smaller, calmer) ----------
+
+.social {
+  text-align: left;
+  margin-top: 3rem;
+
+  .contact-icons {
+    font-size: 1.5rem;
+
+    a {
+      border-bottom: none !important;
+      margin-right: 0.7rem;
+
+      i::before {
+        color: var(--global-text-color-light);
+      }
+
+      &:hover i::before {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+
+  .contact-note {
+    margin-top: 0.5rem;
+    color: var(--global-text-color-light);
+  }
+}
+
+// ---------- Strip shadows + rounded corners app-wide ----------
+
+.z-depth-1,
+.z-depth-2,
+.z-depth-3 {
+  box-shadow: none !important;
+}
+
+.rounded,
+.rounded-circle {
+  // Profile-page image keeps explicit rule above; this catches other places.
+  border-radius: 0 !important;
+}
+
+.card {
+  background-color: transparent;
+  border: none;
+  box-shadow: none !important;
+  border-radius: 0;
+}
+
+// ---------- Publications: tighter, less centered ----------
+
+.publications {
+  h1 {
+    text-align: left;
+    font-size: 2rem;
+    color: var(--global-text-color);
+    margin-bottom: 1.5rem;
+  }
+
+  h2.bibliography {
+    color: var(--global-text-color-light);
+    border-top: 1px solid var(--global-divider-color);
+    border-bottom: none;
+    text-align: left;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding-top: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  ol.bibliography li {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--global-divider-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .abbr abbr {
+      background-color: transparent;
+      color: var(--global-theme-color);
+      border: 1px solid var(--global-theme-color);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+
+      a {
+        color: var(--global-theme-color) !important;
+        border-bottom: none !important;
+      }
+    }
+
+    .title {
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
+
+    .links a.btn {
+      border-radius: 0;
+      box-shadow: none !important;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+    }
+  }
+}
+
+// ---------- Header bar for collection pages ----------
+
+.header-bar {
+  border-bottom: 1px solid var(--global-divider-color);
+  text-align: left;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+
+  h1 {
+    color: var(--global-text-color);
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+}
+
+// ---------- Footer (calmer) ----------
+
+footer.fixed-bottom {
+  background-color: var(--global-bg-color);
+  border-top: 1px solid var(--global-divider-color);
+
+  .container {
+    color: var(--global-text-color-light);
+    text-align: left;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+  }
+
+  a {
+    color: var(--global-text-color-light);
+
+    &:hover {
+      color: var(--global-theme-color);
+    }
+  }
+}
+
+footer.sticky-bottom {
+  border-top: 1px solid var(--global-divider-color);
+
+  .container {
+    text-align: left;
+  }
+}
+
+// ---------- Blockquote (calm, no colored fill) ----------
+
+blockquote {
+  background: transparent;
+  border-left: 2px solid var(--global-text-color-light);
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--global-text-color-light);
+}
+
+// ---------- Code (subtle, not theme-colored) ----------
+
+code {
+  color: var(--global-text-color);
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 2px;
+  font-size: 0.85em;
+}
+
+pre {
+  color: var(--global-text-color);
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 2px;
+}
+
+// ---------- Back-to-top button (smaller, subtler) ----------
+
+#back-to-top {
+  border-radius: 0 !important;
+  background: var(--global-text-color) !important;
+  color: var(--global-bg-color) !important;
+}
+
+// ---------- Newsletter / buttons (square, no shadow) ----------
+
+.newsletter-form-input,
+.bibsearch-form-input,
+.newsletter-form-button,
+.newsletter-loading-button {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
