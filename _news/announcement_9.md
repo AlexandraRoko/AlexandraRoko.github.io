@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Prestened at IC2S2 2025 @Linköping University, Norrköping, Sweden.
+Presented at IC2S2 2025 @Linköping University, Norrköping, Sweden.

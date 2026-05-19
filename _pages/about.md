@@ -19,7 +19,7 @@ social: true
 ---
 
 <p class="profile-lede">
-It can be tempting to picture careers as a clean merit contest: work hard, acquire the necessary skills and qualifications, perform well --- and the rest will sort itself out. But careers do not happen in a vacuum. They are a social process. And this is what I study.
+It can be tempting to picture careers as a clean merit contest: work hard, acquire the necessary skills and qualifications, perform well --- and the rest will sort itself out. But careers do not happen in a vacuum. They are a social process, too. And this is what I study.
 </p>
 
 <dl class="profile-rows">
