@@ -234,10 +234,11 @@
 <div class="wrap">
 
   <p class="kicker">Interactive · Agent-based model</p>
-  <h1>Why does <em>workplace</em> segregation make<br>occupations <em>less</em> segregated?</h1>
-  <p class="lede">Two simulated labour markets run side by side. The workers, their preferences,
+  <h1>Why can <em>workplace</em> segregation make<br>occupations <em>less</em> segregated?</h1>
+  <p class="lede">Imagine two different worlds. The workers, their preferences,
   and the occupations are identical — the only difference is whether <em>workplaces within</em>
-  each occupation are gender-mixed or gender-sorted. Watch how occupational segregation diverges.
+  each occupation are gender-mixed or gender-sorted. Below two simulated labour markets run side by side. 
+  Watch how occupational segregation changes.
   That gap is the <strong>shielding effect</strong>.</p>
 
   <div class="rule"></div>
@@ -305,12 +306,12 @@
   <div class="explain">
     <div>
       <h4>The intuition</h4>
-      <p>Workers tend to prefer colleagues of their own gender. When someone becomes a
-      minority in their occupation, that pressure normally pushes them to leave — which
+      <p>Workers tend to prefer colleagues of their own gender. This is what is called gender homophily. 
+      When someone becomes a minority in their occupation, that pressure can push them to leave — which
       makes the occupation even more lopsided, and so on.</p>
       <p>But people don't experience an occupation in the abstract: they experience their own
       workplace. If that workplace still has plenty of same-gender colleagues, the worker is
-      <em>shielded</em> from the wider imbalance and stays put.</p>
+      <em>shielded</em> from the wider imbalance at the occupational level and stays put.</p>
     </div>
     <div>
       <h4>Why the surprise</h4>
@@ -727,9 +728,9 @@ function updateVerdict(done){
   const pct=Math.round(100*gap/Math.max(di,1e-6));
   elVerdict.innerHTML=
     (done?'Run complete. ':'')+
-    'Segregating workplaces has <b>shielded</b> the occupations: occupational segregation is '+
+    'Segregated workplaces have <b>shielded</b> workers in their occupations: occupational segregation is '+
     '<span class="big">'+pct+'% lower</span> ('+ds.toFixed(2)+' vs. '+di.toFixed(2)+') '+
-    'than when the same workers sit in mixed workplaces.';
+    'compared to a world in which workers sit in mixed workplaces.';
 }
 
 function frame(ts){
