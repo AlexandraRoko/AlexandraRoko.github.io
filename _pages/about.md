@@ -14,7 +14,7 @@ profile:
     <p>Norrköping, Sweden</p>
 
 news: true
-selected_papers: false
+selected_papers: true
 social: true
 ---
 
