@@ -26,38 +26,19 @@
         {% endif %}
       {% endif %}
       {% if entry.preview %}
-        {% if entry.website %}
-          <a href="{{ entry.website | relative_url }}" class="preview-link" aria-label="Read more about: {{ entry.title | escape }}">
-            {% if entry.preview contains '://' %}
-              <img class="preview" src="{{ entry.preview }}">
-            {% else %}
-              {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
-              {%
-                include figure.liquid
-                loading="eager"
-                path=entry_path
-                sizes = "200px"
-                class="preview"
-                zoomable=false
-                alt=entry.preview
-              %}
-            {% endif %}
-          </a>
+        {% if entry.preview contains '://' %}
+          <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
         {% else %}
-          {% if entry.preview contains '://' %}
-            <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
-          {% else %}
-            {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
-            {%
-              include figure.liquid
-              loading="eager"
-              path=entry_path
-              sizes = "200px"
-              class="preview z-depth-1 rounded"
-              zoomable=true
-              alt=entry.preview
-            %}
-          {% endif %}
+          {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
+          {%
+            include figure.liquid
+            loading="eager"
+            path=entry_path
+            sizes = "200px"
+            class="preview z-depth-1 rounded"
+            zoomable=true
+            alt=entry.preview
+          %}
         {% endif %}
       {% endif %}
     </div>
@@ -216,6 +197,13 @@
       {% endif %}
       {% if entry.bibtex_show %}
         <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+      {% endif %}
+      {% if entry.learn_more %}
+        {% if entry.learn_more contains '://' %}
+          <a href="{{ entry.learn_more }}" target="_blank" rel="noopener" class="btn btn-sm z-depth-0" role="button">Learn more</a>
+        {% else %}
+          <a href="{{ entry.learn_more | relative_url }}" target="_blank" rel="noopener" class="btn btn-sm z-depth-0" role="button">Learn more</a>
+        {% endif %}
       {% endif %}
       {% if entry.html %}
         {% if entry.html contains '://' %}
