@@ -18,13 +18,30 @@ selected_papers: true
 social: true
 ---
 
-I study how labour markets sort people into occupations — and why those sorts so reliably break along gender lines. My dissertation uses Swedish full-population register data and computational methods to get at the mechanisms behind occupational gender segregation. A second strand of my work looks at scholarly mobility: how a researcher's personal and institutional embedding shapes the opportunity space they move through.
+<p class="profile-lede">
+I study how labour markets sort people into occupations — and why those sorts so reliably break along gender lines.
+</p>
 
-I'm a trained social data scientist ([Oxford](https://www.oii.ox.ac.uk/)) with earlier degrees in public policy (Berlin) and physics and geography (Heidelberg). My past projects combined NLP, social network analysis, and agent-based modelling to study policymaking in the German parliament, how nations digitize over time, and how gender shapes online interaction.
+<dl class="profile-rows">
+  <dt>Research</dt>
+  <dd>Occupational gender segregation, studied with Swedish full-population register data and computational methods. A second strand: scholarly mobility and how collaboration networks shape researchers' opportunity space.</dd>
 
-I'm supervised by [Károly Takács](https://liu.se/en/employee/karta65) and [Martin Arvidsson](https://martin-arvidsson.github.io/).
+  <dt>Methods</dt>
+  <dd>Social network analysis · agent-based modelling · NLP · register-data analytics</dd>
 
-When I'm not coding, reading, or writing, I'm usually out on a lakeshore trail or tending to plants. You can [download my CV](/assets/pdf/Rottenkolber_CV_Website.pdf) or reach me at <a href="mailto:alexandra.rottenkolber@liu.se">alexandra.rottenkolber@liu.se</a>.
+  <dt>Background</dt>
+  <dd>MSc Social Data Science (<a href="https://www.oii.ox.ac.uk/">Oxford</a>) · MPP Public Policy (Berlin) · BSc Physics + Geography (Heidelberg)</dd>
+
+  <dt>Supervised by</dt>
+  <dd><a href="https://liu.se/en/employee/karta65">Károly Takács</a> · <a href="https://martin-arvidsson.github.io/">Martin Arvidsson</a></dd>
+
+  <dt>Get in touch</dt>
+  <dd><a href="mailto:alexandra.rottenkolber@liu.se">alexandra.rottenkolber@liu.se</a> · <a href="{{ '/assets/pdf/Rottenkolber_CV_Website.pdf' | relative_url }}">download CV (PDF)</a></dd>
+</dl>
+
+<p class="profile-offhours">
+When I'm not coding, reading, or writing, I'm usually out on a lakeshore trail or tending to plants.
+</p>
 
 <!-- ============================================================
      Unfolding sections — CV, Talks, Teaching, Code.
