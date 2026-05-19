@@ -1,0 +1,48 @@
+<svg width="100%" viewBox="0 0 680 680" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Project tile: scholarly mobility and networks</title>
+<desc>A square cream tile showing two research institutions connected by a co-authorship network, with a coral arc tracing a scholar's first career move between them.</desc>
+<defs>
+<marker id="mvhead" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<rect x="0" y="0" width="680" height="680" rx="64" fill="#fafaf7"/>
+
+<line x1="293" y1="389" x2="387" y2="291" stroke="#5ec8e8" stroke-width="7" stroke-linecap="round"/>
+
+<circle cx="215" cy="470" r="112" fill="#efeee8"/>
+<circle cx="465" cy="210" r="112" fill="#efeee8"/>
+
+<g stroke="#a8a8a3" stroke-width="3" stroke-linecap="round">
+<line x1="252" y1="432" x2="172" y2="498"/>
+<line x1="252" y1="432" x2="262" y2="520"/>
+<line x1="252" y1="432" x2="158" y2="432"/>
+<line x1="418" y1="272" x2="512" y2="170"/>
+<line x1="418" y1="272" x2="520" y2="250"/>
+<line x1="512" y1="170" x2="470" y2="135"/>
+</g>
+
+<g stroke="#ff7a59" stroke-width="3.4" stroke-linecap="round" opacity="0.55">
+<line x1="252" y1="432" x2="345" y2="358"/>
+<line x1="345" y1="358" x2="418" y2="272"/>
+</g>
+
+<circle cx="215" cy="470" r="112" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+<circle cx="465" cy="210" r="112" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+
+<g fill="#a8a8a3">
+<circle cx="172" cy="498" r="8"/>
+<circle cx="262" cy="520" r="8"/>
+<circle cx="158" cy="432" r="8"/>
+<circle cx="345" cy="358" r="9"/>
+<circle cx="418" cy="272" r="9"/>
+<circle cx="512" cy="170" r="8"/>
+<circle cx="470" cy="135" r="8"/>
+<circle cx="520" cy="250" r="8"/>
+</g>
+
+<path d="M252 432 Q 236 250 432 250" fill="none" stroke="#ff7a59" stroke-width="8" stroke-linecap="round" marker-end="url(#mvhead)"/>
+
+<circle cx="252" cy="432" r="15" fill="#ff7a59"/>
+</svg>
