@@ -22,6 +22,14 @@
   --global-newsletter-bg-color: #{$white-color};
   --global-newsletter-text-color: #{$black-color};
 
+  // Spark accents (figures, callouts, highlights)
+  --spark-coral: #{$spark-coral};
+  --spark-coral-deep: #{$spark-coral-deep};
+  --spark-chartreuse: #{$spark-chartreuse};
+  --spark-chartreuse-deep: #{$spark-chartreuse-deep};
+  --spark-sky: #{$spark-sky};
+  --spark-sky-deep: #{$spark-sky-deep};
+
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
   --global-tip-block-text: #215d42;

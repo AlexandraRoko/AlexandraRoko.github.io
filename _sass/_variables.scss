@@ -45,6 +45,16 @@ $hairline-color: rgba(0, 0, 0, 0.08) !default; // dividers, borders
 $font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace !default;
 
+// ----- Spark colors (added 2026-05-19) -----
+// Bright accents for figures, callouts, highlights.
+// Each "-deep" variant is darker, readable as text on cream.
+$spark-coral: #ff7a59 !default;
+$spark-coral-deep: #d65c33 !default;
+$spark-chartreuse: #d4e84a !default;
+$spark-chartreuse-deep: #7d8f10 !default;
+$spark-sky: #5ec8e8 !default;
+$spark-sky-deep: #1d7ea3 !default;
+
 // Theme colors
 
 $code-bg-color-light: rgba(#1c94a4, 0.05);

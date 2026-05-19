@@ -123,22 +123,23 @@ a.btncv,
 
 .profile-rows {
   display: grid;
-  grid-template-columns: 9rem 1fr;
-  column-gap: 1.6rem;
+  grid-template-columns: 9.5rem 1fr;
+  column-gap: 1.8rem;
   row-gap: 1rem;
   margin: 1.4rem 0 0;
   max-width: 44rem;
   clear: both; // ensure the grid starts below the float photo
 
   dt {
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 0.78rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--global-text-color-light);
-    padding-top: 0.2rem;
+    color: var(--spark-coral-deep); // coral spark
+    padding-top: 0.15rem;
     align-self: start;
     line-height: 1.4;
+    text-align: right; // sharper column edge against content
   }
 
   dd {
@@ -146,6 +147,9 @@ a.btncv,
     font-size: 0.95rem;
     line-height: 1.55;
     color: var(--global-text-color);
+    border-left: 1px solid var(--global-divider-color); // hairline gutter
+    padding-left: 1.3rem;
+    margin-left: -0.3rem; // align gutter snugly against the column gap
   }
 }
 
@@ -165,10 +169,14 @@ a.btncv,
 
     dt {
       padding-top: 0.6rem;
+      text-align: left; // no column edge to align against on mobile
     }
 
     dd {
       margin-bottom: 0.4rem;
+      border-left: none;
+      padding-left: 0;
+      margin-left: 0;
     }
   }
 }
