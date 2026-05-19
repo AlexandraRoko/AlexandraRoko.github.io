@@ -1,71 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Two grids of dots: gender-mixed workplaces on the left, gender-sorted workplaces on the right">
-  <rect width="400" height="400" fill="#fafaf7"/>
-
-  <!-- Header labels -->
-  <text x="100" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#6b6b6b" letter-spacing="1.5">INTEGRATED</text>
-  <text x="300" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#6b6b6b" letter-spacing="1.5">SORTED</text>
-
-  <!-- Vertical divider -->
-  <line x1="200" y1="50" x2="200" y2="370" stroke="#e0e0d8" stroke-width="1"/>
-
-  <!-- LEFT panel: integrated/mixed workplaces -->
-  <!-- 4x4 grid of dots, alternating colors (random-looking mix) -->
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Homogeneous workplace clusters forming a gender-balanced occupation">
+  <rect x="0.75" y="0.75" width="318.5" height="318.5" rx="5" fill="#FAF8F3" stroke="#E3E0D7" stroke-width="1.5"/>
   <g>
-    <!-- row 1 -->
-    <circle cx="55" cy="80" r="6" fill="#3d6394"/>
-    <circle cx="85" cy="80" r="6" fill="#c89070"/>
-    <circle cx="115" cy="80" r="6" fill="#3d6394"/>
-    <circle cx="145" cy="80" r="6" fill="#c89070"/>
-    <!-- row 2 -->
-    <circle cx="55" cy="130" r="6" fill="#c89070"/>
-    <circle cx="85" cy="130" r="6" fill="#3d6394"/>
-    <circle cx="115" cy="130" r="6" fill="#c89070"/>
-    <circle cx="145" cy="130" r="6" fill="#3d6394"/>
-    <!-- row 3 -->
-    <circle cx="55" cy="180" r="6" fill="#3d6394"/>
-    <circle cx="85" cy="180" r="6" fill="#c89070"/>
-    <circle cx="115" cy="180" r="6" fill="#3d6394"/>
-    <circle cx="145" cy="180" r="6" fill="#c89070"/>
-    <!-- row 4 -->
-    <circle cx="55" cy="230" r="6" fill="#c89070"/>
-    <circle cx="85" cy="230" r="6" fill="#3d6394"/>
-    <circle cx="115" cy="230" r="6" fill="#c89070"/>
-    <circle cx="145" cy="230" r="6" fill="#3d6394"/>
+    <circle cx="99.9" cy="119.7" r="5.60" fill="#BE7A4E"/>
+    <circle cx="106.4" cy="136.8" r="6.82" fill="#BE7A4E"/>
+    <circle cx="84.0" cy="120.1" r="5.89" fill="#BE7A4E"/>
+    <circle cx="99.9" cy="103.8" r="5.90" fill="#BE7A4E"/>
+    <circle cx="115.7" cy="117.7" r="6.98" fill="#41597F"/>
+    <circle cx="169.4" cy="126.2" r="6.11" fill="#BE7A4E"/>
+    <circle cx="186.6" cy="122.4" r="5.83" fill="#BE7A4E"/>
+    <circle cx="177.4" cy="142.7" r="5.80" fill="#BE7A4E"/>
+    <circle cx="151.2" cy="128.2" r="5.69" fill="#BE7A4E"/>
+    <circle cx="170.0" cy="109.8" r="6.02" fill="#41597F"/>
+    <circle cx="231.7" cy="125.5" r="6.91" fill="#BE7A4E"/>
+    <circle cx="222.7" cy="111.6" r="6.93" fill="#BE7A4E"/>
+    <circle cx="247.9" cy="118.6" r="6.10" fill="#BE7A4E"/>
+    <circle cx="239.6" cy="140.5" r="6.17" fill="#BE7A4E"/>
+    <circle cx="217.3" cy="133.2" r="6.37" fill="#BE7A4E"/>
+    <circle cx="80.9" cy="208.9" r="6.33" fill="#41597F"/>
+    <circle cx="65.5" cy="206.6" r="6.69" fill="#41597F"/>
+    <circle cx="80.1" cy="190.6" r="5.75" fill="#41597F"/>
+    <circle cx="97.6" cy="202.9" r="6.65" fill="#41597F"/>
+    <circle cx="83.6" cy="227.0" r="6.72" fill="#41597F"/>
+    <circle cx="70.3" cy="221.6" r="6.80" fill="#41597F"/>
+    <circle cx="174.2" cy="214.8" r="6.03" fill="#41597F"/>
+    <circle cx="190.2" cy="209.1" r="6.72" fill="#41597F"/>
+    <circle cx="177.9" cy="230.3" r="6.48" fill="#41597F"/>
+    <circle cx="157.3" cy="219.9" r="6.61" fill="#41597F"/>
+    <circle cx="167.0" cy="198.7" r="6.03" fill="#41597F"/>
+    <circle cx="236.8" cy="197.6" r="5.65" fill="#41597F"/>
+    <circle cx="250.5" cy="207.9" r="6.29" fill="#41597F"/>
+    <circle cx="238.0" cy="213.8" r="6.77" fill="#41597F"/>
+    <circle cx="219.4" cy="202.2" r="5.78" fill="#41597F"/>
+    <circle cx="226.4" cy="184.5" r="6.62" fill="#41597F"/>
+    <circle cx="242.4" cy="180.2" r="6.93" fill="#BE7A4E"/>
   </g>
-
-  <!-- RIGHT panel: sorted workplaces (clear vertical color blocks) -->
-  <g>
-    <!-- row 1 -->
-    <circle cx="255" cy="80" r="6" fill="#3d6394"/>
-    <circle cx="285" cy="80" r="6" fill="#3d6394"/>
-    <circle cx="315" cy="80" r="6" fill="#c89070"/>
-    <circle cx="345" cy="80" r="6" fill="#c89070"/>
-    <!-- row 2 -->
-    <circle cx="255" cy="130" r="6" fill="#3d6394"/>
-    <circle cx="285" cy="130" r="6" fill="#3d6394"/>
-    <circle cx="315" cy="130" r="6" fill="#c89070"/>
-    <circle cx="345" cy="130" r="6" fill="#c89070"/>
-    <!-- row 3 -->
-    <circle cx="255" cy="180" r="6" fill="#3d6394"/>
-    <circle cx="285" cy="180" r="6" fill="#3d6394"/>
-    <circle cx="315" cy="180" r="6" fill="#c89070"/>
-    <circle cx="345" cy="180" r="6" fill="#c89070"/>
-    <!-- row 4 -->
-    <circle cx="255" cy="230" r="6" fill="#3d6394"/>
-    <circle cx="285" cy="230" r="6" fill="#3d6394"/>
-    <circle cx="315" cy="230" r="6" fill="#c89070"/>
-    <circle cx="345" cy="230" r="6" fill="#c89070"/>
-  </g>
-
-  <!-- Bottom segregation curves illustrative -->
-  <g stroke-linecap="round" fill="none">
-    <!-- integrated: rises steep -->
-    <path d="M 30 360 Q 90 320 170 280" stroke="#9c9c95" stroke-width="2"/>
-    <!-- sorted: rises less -->
-    <path d="M 230 360 Q 290 340 370 320" stroke="#3d6394" stroke-width="2"/>
-  </g>
-
-  <text x="100" y="385" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#9c9c95" letter-spacing="0.8">higher Dᵒ</text>
-  <text x="300" y="385" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#3d6394" letter-spacing="0.8">lower Dᵒ</text>
 </svg>
