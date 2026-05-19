@@ -6,27 +6,28 @@
 <title>The Shielding Effect — Interactive Simulation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f1ede3;
-    --panel:#faf8f1;
-    --ink:#21251f;
-    --muted:#73776d;
-    --line:#d8d3c4;
-    --women:#0f7d7d;       /* teal  */
-    --men:#d97f2a;         /* ochre */
-    --line-int:#aaaaa4;    /* light grey — "integrated workplaces" line */
-    --line-seg:#3c3f3a;    /* dark grey  — "segregated workplaces" line */
-    --shield:#2f7d4f;      /* green — shielding band + accents */
-    --shield-soft:rgba(47,125,79,.16);
+    /* Re-tuned to match AlexandraRoko.github.io — cream paper + navy accent. */
+    --paper:#fafaf7;       /* website cream */
+    --panel:#ffffff;       /* clean white panels lifting off the cream */
+    --ink:#1a1a1a;         /* website charcoal */
+    --muted:#6b6b6b;       /* website muted */
+    --line:#e6e4dd;        /* hairline */
+    --women:#3a7773;       /* muted teal — works with cream + navy */
+    --men:#c89070;         /* terracotta */
+    --line-int:#a8a8a3;    /* light grey — "integrated workplaces" line (baseline) */
+    --line-seg:#1f3a5f;    /* deep navy — "segregated workplaces" line (the finding) */
+    --shield:#1f3a5f;      /* website navy — shielding band + accents */
+    --shield-soft:rgba(31,58,95,.13);
   }
   *{box-sizing:border-box}
   html,body{margin:0}
   body{
     background:var(--paper);
     color:var(--ink);
-    font-family:"IBM Plex Sans",sans-serif;
+    font-family:"Inter",sans-serif;
     line-height:1.55;
     -webkit-font-smoothing:antialiased;
   }
@@ -34,12 +35,12 @@
 
   /* ---- header ---- */
   .kicker{
-    font-family:"IBM Plex Mono",monospace;
+    font-family:"JetBrains Mono",monospace;
     font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;
     color:var(--shield);margin:0 0 10px;
   }
   h1{
-    font-family:"Fraunces",serif;
+    font-family:"Inter",sans-serif;
     font-weight:500;font-size:clamp(28px,4.6vw,46px);
     line-height:1.08;letter-spacing:-.012em;margin:0 0 14px;
   }
@@ -55,14 +56,14 @@
   }
   .ctrl{display:flex;flex-direction:column;gap:7px;min-width:172px;flex:1}
   .ctrl label{
-    font-family:"IBM Plex Mono",monospace;font-size:11px;
+    font-family:"JetBrains Mono",monospace;font-size:11px;
     letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
     display:flex;justify-content:space-between;align-items:baseline;
   }
   .ctrl label .sym{text-transform:none}
   .ctrl label b{
     font-weight:500;color:var(--ink);font-size:13px;
-    background:#ece7d8;border-radius:5px;padding:1px 7px;
+    background:rgba(0,0,0,0.05);border-radius:5px;padding:1px 7px;
   }
   input[type=range]{
     -webkit-appearance:none;appearance:none;width:100%;height:4px;
@@ -80,7 +81,7 @@
   .hint{font-size:11.5px;color:var(--muted);font-style:italic}
   .btns{display:flex;gap:9px}
   button{
-    font-family:"IBM Plex Sans",sans-serif;font-weight:500;font-size:13.5px;
+    font-family:"Inter",sans-serif;font-weight:500;font-size:13.5px;
     padding:9px 17px;border-radius:8px;cursor:pointer;border:1px solid var(--ink);
     background:var(--ink);color:var(--paper);transition:transform .06s ease,opacity .15s;
   }
@@ -88,7 +89,7 @@
   button:active{transform:translateY(1px)}
   button:disabled{opacity:.4;cursor:default}
   .iter{
-    font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted);
+    font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);
     align-self:center;white-space:nowrap;
   }
   .iter b{color:var(--ink)}
@@ -100,7 +101,7 @@
     border-radius:13px;padding:15px 16px 13px;
   }
   .world h3{
-    font-family:"Fraunces",serif;font-weight:500;font-size:17px;
+    font-family:"Inter",sans-serif;font-weight:500;font-size:17px;
     margin:0 0 2px;letter-spacing:-.01em;
   }
   .world .sub{font-size:12px;color:var(--muted);margin:0 0 11px}
@@ -111,7 +112,7 @@
   }
   .readout .lab{font-size:11.5px;color:var(--muted)}
   .readout .val{
-    font-family:"IBM Plex Mono",monospace;font-size:21px;font-weight:500;
+    font-family:"JetBrains Mono",monospace;font-size:21px;font-weight:500;
   }
 
   /* ---- chart ---- */
@@ -120,19 +121,19 @@
     border-radius:13px;padding:18px 20px 16px;
   }
   .chartcard h3{
-    font-family:"Fraunces",serif;font-weight:500;font-size:18px;
+    font-family:"Inter",sans-serif;font-weight:500;font-size:18px;
     margin:0 0 3px;letter-spacing:-.01em;
   }
   .chartcard .sub{font-size:12.5px;color:var(--muted);margin:0 0 12px}
   #chart{width:100%;display:block}
   .verdict{
     margin-top:14px;padding:13px 16px;border-radius:9px;
-    background:var(--shield-soft);border:1px solid rgba(47,125,79,.32);
+    background:var(--shield-soft);border:1px solid rgba(31,58,95,.25);
     font-size:14.5px;
   }
   .verdict b{color:var(--shield)}
   .verdict .big{
-    font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:17px;color:var(--shield);
+    font-family:"JetBrains Mono",monospace;font-weight:500;font-size:17px;color:var(--shield);
   }
 
   /* ---- legend ---- */
@@ -147,18 +148,18 @@
   /* ---- explainer ---- */
   .explain{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:26px 40px}
   .explain h4{
-    font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;
+    font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.1em;
     text-transform:uppercase;color:var(--shield);margin:0 0 8px;
   }
-  .explain p{font-size:13.7px;color:#4a4e44;margin:0 0 11px}
+  .explain p{font-size:13.7px;color:#4a4a4a;margin:0 0 11px}
   .explain p:last-child{margin-bottom:0}
   .foot{
     margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
     font-size:12px;color:var(--muted);
   }
   .foot code{
-    font-family:"IBM Plex Mono",monospace;font-size:11.5px;
-    background:#ece7d8;padding:1px 6px;border-radius:4px;
+    font-family:"JetBrains Mono",monospace;font-size:11.5px;
+    background:rgba(0,0,0,0.05);padding:1px 6px;border-radius:4px;
   }
 
   @media(max-width:720px){
@@ -233,7 +234,7 @@
     <div class="legend">
       <span><span class="dash" style="color:var(--line-int)"></span>Integrated workplaces</span>
       <span><span class="dash" style="color:var(--line-seg)"></span>Segregated workplaces</span>
-      <span><span class="swatch" style="background:var(--shield-soft);border:1px solid rgba(47,125,79,.4)"></span>Shielding effect (the gap)</span>
+      <span><span class="swatch" style="background:var(--shield-soft);border:1px solid rgba(31,58,95,.32)"></span>Shielding effect (the gap)</span>
       <span><span class="swatch" style="background:var(--women)"></span>Women</span>
       <span><span class="swatch" style="background:var(--men)"></span>Men</span>
     </div>
@@ -445,10 +446,10 @@ const ctxS = cSeg.getContext("2d");
 const ctxC = chart.getContext("2d");
 
 const COL = {
-  women:"#0f7d7d", men:"#d97f2a",
-  lineInt:"#aaaaa4", lineSeg:"#3c3f3a", shield:"#2f7d4f",
-  ink:"#21251f", line:"#d8d3c4", muted:"#73776d",
-  panel:"#faf8f1"
+  women:"#3a7773", men:"#c89070",
+  lineInt:"#a8a8a3", lineSeg:"#1f3a5f", shield:"#1f3a5f",
+  ink:"#1a1a1a", line:"#e6e4dd", muted:"#6b6b6b",
+  panel:"#ffffff"
 };
 
 function fitCanvas(cv, ctx, aspect){
@@ -498,7 +499,7 @@ function layoutWorld(world, cv){
 function lerpColor(a,b,t){    // a,b as [r,g,b]
   return [a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t, a[2]+(b[2]-a[2])*t];
 }
-const RGB_W=[15,125,125], RGB_M=[217,127,42];
+const RGB_W=[58,119,115], RGB_M=[200,144,112];
 
 function drawWorld(world, cv, ctx){
   const dpr=window.devicePixelRatio||1;
@@ -521,13 +522,13 @@ function drawWorld(world, cv, ctx){
     ctx.fillStyle=`rgba(${tc[0]|0},${tc[1]|0},${tc[2]|0},0.5)`;
     ctx.fillRect(cx+1,pad,colW-2,headH-4);
     ctx.fillStyle="#fff";
-    ctx.font="600 9px 'IBM Plex Mono', monospace";
+    ctx.font="600 9px 'JetBrains Mono', monospace";
     ctx.textAlign="center"; ctx.textBaseline="middle";
     ctx.fillText("OCC "+(j+1), cx+colW/2, pad+(headH-4)/2);
     // workplace cells
     for(let k=0;k<WP;k++){
       const cy=gridTop+k*cellH;
-      ctx.fillStyle="rgba(255,255,255,0.55)";
+      ctx.fillStyle="rgba(0,0,0,0.025)";
       ctx.strokeStyle=COL.line; ctx.lineWidth=1;
       roundRect(ctx,cx+1.5,cy+1.5,colW-3,cellH-3,4);
       ctx.fill(); ctx.stroke();
@@ -565,7 +566,7 @@ function drawChart(){
   // gridlines + y labels
   ctx.strokeStyle=COL.line; ctx.lineWidth=1;
   ctx.fillStyle=COL.muted;
-  ctx.font="10px 'IBM Plex Mono', monospace";
+  ctx.font="10px 'JetBrains Mono', monospace";
   ctx.textAlign="right"; ctx.textBaseline="middle";
   for(let v=0;v<=0.8001;v+=0.2){
     ctx.beginPath(); ctx.moveTo(mL,Y(v)); ctx.lineTo(w-mR,Y(v)); ctx.stroke();
@@ -583,7 +584,7 @@ function drawChart(){
     for(let t=0;t<nPts;t++){ const x=X(t),y=Y(hi[t]); t?ctx.lineTo(x,y):ctx.moveTo(x,y); }
     for(let t=nPts-1;t>=0;t--){ ctx.lineTo(X(t),Y(hs[t])); }
     ctx.closePath();
-    ctx.fillStyle="rgba(47,125,79,0.16)";
+    ctx.fillStyle="rgba(31,58,95,0.13)";
     ctx.fill();
     // integrated line
     drawLine(ctx,hi,nPts,X,Y,COL.lineInt,2.4);
