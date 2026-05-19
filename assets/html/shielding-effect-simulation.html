@@ -686,9 +686,9 @@ function frame(ts){
 }
 
 function resizeAll(){
-  fitCanvas(cInt,ctxI,1.55);
-  fitCanvas(cSeg,ctxS,1.55);
-  fitCanvas(chart,ctxC,3.0);
+  fitCanvas(cInt,ctxI,1.85);   // wider → shorter world cards
+  fitCanvas(cSeg,ctxS,1.85);
+  fitCanvas(chart,ctxC,4.2);   // wider → shorter chart
   if(worldInt){ layoutWorld(worldInt,cInt); layoutWorld(worldSeg,cSeg); }
 }
 
@@ -713,7 +713,7 @@ window.addEventListener("resize",resizeAll);
 resizeAll();
 initSim((Math.random()*1e9)|0);
 updateReadouts();
-running=true; elPlay.textContent="Pause";
+running=false; elPlay.textContent="Play";   // start paused — user clicks Play to begin
 requestAnimationFrame(frame);
 </script>
 </body>
