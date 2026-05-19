@@ -36,7 +36,14 @@ It can be tempting to picture careers as a clean merit contest: work hard, acqui
   <dd><a href="https://liu.se/en/employee/karta65">Károly Takács</a> · <a href="https://martin-arvidsson.github.io/">Martin Arvidsson</a> · <a href="https://sociology.cornell.edu/michael-macy">Michael Macy</a></dd>
 
   <dt>Get in touch</dt>
-  <dd><a href="mailto:alexandra.rottenkolber@liu.se">alexandra.rottenkolber@liu.se</a></dd>
+  <dd>
+    <a href="mailto:alexandra.rottenkolber@liu.se">alexandra.rottenkolber@liu.se</a>
+    <span class="get-in-touch-socials">
+      {% if site.linkedin_username %}<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>{% endif %}
+      {% if site.bluesky_url %}<a href="https://bsky.app/profile/{{ site.bluesky_url }}" title="Bluesky" target="_blank" rel="noopener"><i class="fa-brands fa-bluesky"></i></a>{% endif %}
+      {% if site.x_username %}<a href="https://twitter.com/{{ site.x_username }}" title="X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>{% endif %}
+    </span>
+  </dd>
 </dl>
 
 <p class="profile-offhours">
