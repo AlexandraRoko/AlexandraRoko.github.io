@@ -67,32 +67,31 @@ pre {
 }
 
 // ---------- Links ----------
-// One consistent treatment for body links: accent color + underline,
-// always visible. Hover slightly thickens the underline.
+// Body links: accent color always, underline appears ONLY on hover.
+// Hover state = color + underline (both together).
 
 a,
 table.table a {
   color: var(--global-theme-color);
-  text-decoration: underline;
+  text-decoration: none;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   text-decoration-color: var(--global-theme-color);
   border-bottom: none;
-  transition: text-decoration-thickness 0.15s ease, color 0.15s ease;
+  transition: color 0.15s ease;
 
   &:hover {
     color: var(--global-theme-color);
     text-decoration: underline;
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 1px;
   }
 }
 
-// Exceptions: places where the always-on underline would be visual noise.
-// These get a hover-only underline (or no underline at all).
-.navbar a,
+// Exceptions: elements with their own visual treatment (bordered
+// chips, buttons, icon-only links, decorative heading anchors).
+// These should never show an underline — even on hover.
 .navbar-brand,
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
-.post-header .desc a,
 .publications .links a.btn,
 .publications .author a,
 .publications .abbr abbr a,
@@ -102,12 +101,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
 .cv-pdf-link,
 a.btn,
 a.btncv,
-footer a,
-.more-sections details summary,
-.more-sections details summary a,
-.news .news-title {
+.more-sections details summary {
   text-decoration: none;
   border-bottom: none;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 // ---------- Profile / about header ----------
