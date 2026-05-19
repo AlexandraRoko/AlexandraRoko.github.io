@@ -48,13 +48,28 @@
   .lede{font-size:16.5px;color:var(--muted);margin:0}
   .rule{height:1px;background:var(--line);margin:30px 0 26px}
 
-  /* ---- controls ---- */
+  /* ---- controls ----
+     Grid with 3 fixed rows so labels, sliders, and hints line up
+     horizontally across all four control columns. .ctrl uses
+     display:contents so its label/slider/hint become direct grid
+     children and fall into the shared rows. */
   .controls{
-    display:flex;flex-wrap:wrap;gap:22px 30px;align-items:flex-end;
+    display:grid;
+    grid-template-columns:1fr 1fr 140px auto;
+    grid-template-rows:auto auto auto;
+    grid-auto-flow:column;
+    column-gap:30px;
+    row-gap:7px;
+    align-items:center;
     background:var(--panel);border:1px solid var(--line);
     border-radius:13px;padding:18px 22px;margin-bottom:22px;
   }
-  .ctrl{display:flex;flex-direction:column;gap:7px;min-width:172px;flex:1}
+  .ctrl{display:contents}
+  .ctrl > label{align-self:end}
+  .ctrl > .hint{align-self:start}
+  /* Buttons column (no label): place btns in slider row, iter in hint row */
+  .btns{grid-row:2;align-self:center}
+  .iter{grid-row:3;align-self:start}
   .ctrl label{
     font-family:"JetBrains Mono",monospace;font-size:11px;
     letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
@@ -165,7 +180,15 @@
   @media(max-width:720px){
     .worlds{grid-template-columns:1fr}
     .explain{grid-template-columns:1fr}
-    .ctrl{min-width:140px}
+    /* On narrow screens, revert controls to a wrapping flex layout so
+       each control stacks as a self-contained block. */
+    .controls{
+      display:flex;flex-wrap:wrap;align-items:flex-start;gap:18px;
+    }
+    .ctrl{
+      display:flex;flex-direction:column;gap:7px;min-width:140px;flex:1;
+    }
+    .btns,.iter{grid-row:auto;align-self:auto}
   }
 </style>
 </head>
@@ -194,7 +217,7 @@
     </div>
     <div class="ctrl" style="min-width:120px;flex:0">
       <label>Speed</label>
-      <input type="range" id="speed" min="1" max="5" step="1" value="3">
+      <input type="range" id="speed" min="1" max="30" step="1" value="3">
       <span class="hint">Iterations per second</span>
     </div>
     <div class="ctrl" style="flex:0;min-width:auto">
