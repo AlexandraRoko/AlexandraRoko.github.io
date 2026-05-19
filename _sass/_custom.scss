@@ -397,6 +397,154 @@ pre {
   color: var(--global-bg-color) !important;
 }
 
+// ---------- Unfolding sections (CV, Talks, Teaching, Code) ----------
+
+.more-sections {
+  margin-top: 3rem;
+
+  details {
+    border-top: 1px solid var(--global-divider-color);
+    padding: 0;
+
+    &:last-of-type {
+      border-bottom: 1px solid var(--global-divider-color);
+    }
+
+    summary {
+      // Reset native marker
+      list-style: none;
+      cursor: pointer;
+      padding: 1.1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      // Match the uppercase tracked h2 treatment used elsewhere
+      font-size: 1.05rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--global-text-color-light);
+      transition: color 0.15s ease;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      .summary-text {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.9rem;
+      }
+
+      // Inline PDF link in the CV section header
+      .cv-pdf-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        color: var(--global-text-color-light);
+        border-bottom: none !important;
+        padding: 0.15rem 0.5rem;
+        border: 1px solid var(--global-divider-color);
+        transition: color 0.15s ease, border-color 0.15s ease;
+
+        i {
+          font-size: 0.85rem;
+        }
+
+        .pdf-label {
+          // hide the word "PDF" if you prefer icon-only; keep it for clarity
+          display: inline;
+        }
+
+        &:hover {
+          color: var(--global-theme-color);
+          border-color: var(--global-theme-color);
+        }
+      }
+
+      // Custom expand indicator on the right
+      &::after {
+        content: "+";
+        font-family: $font-sans;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1;
+        color: var(--global-text-color-light);
+        letter-spacing: 0;
+        transition: transform 0.2s ease, color 0.15s ease;
+      }
+
+      &:hover {
+        color: var(--global-text-color);
+
+        &::after {
+          color: var(--global-theme-color);
+        }
+      }
+    }
+
+    &[open] > summary {
+      color: var(--global-text-color);
+      border-bottom: 1px solid var(--global-divider-color);
+      margin-bottom: 1.2rem;
+
+      &::after {
+        content: "−"; // minus sign when open
+        color: var(--global-theme-color);
+      }
+    }
+  }
+
+  .details-body {
+    padding: 0 0 1.5rem;
+
+    .details-meta {
+      color: var(--global-text-color-light);
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+
+    // CV cards inside details — strip the al-folio card chrome,
+    // keep just spaced typography
+    .cv {
+      .card {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        margin-top: 0 !important;
+        padding: 0.4rem 0 1.5rem !important;
+        border-bottom: 1px dashed var(--global-divider-color);
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      .card-title {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 500 !important;
+        color: var(--global-text-color-light);
+        margin-bottom: 0.8rem;
+      }
+
+      // CV time_table rows (Education etc.)
+      .table-cv-map {
+        td,
+        th {
+          border: none;
+          padding: 0.3rem 0.5rem 0.3rem 0;
+        }
+      }
+    }
+  }
+}
+
 // ---------- Newsletter / buttons (square, no shadow) ----------
 
 .newsletter-form-input,
