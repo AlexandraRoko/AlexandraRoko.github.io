@@ -742,7 +742,10 @@ pre {
         }
       }
 
-      // Year badge: convert pill to plain typographic label
+      // Year badge: convert pill to plain typographic label.
+      // Higher-specificity selector (span.badge) + !important on every
+      // visual property to defeat MDB's .danger-color-dark + al-folio's
+      // .cv .card .list-group-item .badge backgrounds.
       .table-cv {
         margin: 0;
         width: auto !important;
@@ -752,29 +755,36 @@ pre {
           border: none !important;
         }
 
-        .badge {
-          display: inline-block;
-          background: transparent !important;
-          color: var(--global-text-color-light) !important;
-          font-family: $font-sans;
-          font-weight: 400 !important;
-          font-size: 0.88rem;
-          letter-spacing: 0;
-          text-transform: none !important;
-          padding: 0 !important;
-          border: none !important;
-          text-align: left !important;
-          min-width: 0 !important;
-          line-height: 1.45 !important;
-          font-variant-numeric: tabular-nums;
-        }
-
         p.location {
           font-size: 0.78rem;
           color: var(--global-text-color-light);
           margin: 0.1rem 0 0;
           white-space: normal;
         }
+      }
+
+      // Maximally specific: kill background, shadow, radius, monospace.
+      span.badge,
+      .card .list-group-item span.badge {
+        display: inline-block !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        color: var(--global-text-color-light) !important;
+        font-family: $font-sans !important;
+        font-weight: 400 !important;
+        font-size: 0.88rem !important;
+        letter-spacing: 0 !important;
+        text-transform: none !important;
+        padding: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        text-align: left !important;
+        min-width: 0 !important;
+        line-height: 1.45 !important;
+        font-variant-numeric: tabular-nums;
       }
 
       // Hide the decorative icons (building, dot, location)
