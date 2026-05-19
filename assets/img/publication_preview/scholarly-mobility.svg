@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="A small network of nodes and edges, representing a scholarly collaboration graph">
+  <rect width="400" height="400" fill="#fafaf7"/>
+
+  <!-- edges (drawn first so they sit behind nodes) -->
+  <g stroke="#c0bdb2" stroke-width="1" fill="none">
+    <line x1="120" y1="100" x2="200" y2="170"/>
+    <line x1="200" y1="170" x2="280" y2="110"/>
+    <line x1="200" y1="170" x2="140" y2="240"/>
+    <line x1="200" y1="170" x2="280" y2="240"/>
+    <line x1="120" y1="100" x2="140" y2="240"/>
+    <line x1="280" y1="110" x2="280" y2="240"/>
+    <line x1="140" y1="240" x2="220" y2="300"/>
+    <line x1="280" y1="240" x2="220" y2="300"/>
+    <line x1="220" y1="300" x2="320" y2="320"/>
+    <line x1="280" y1="240" x2="320" y2="320"/>
+    <line x1="60" y1="180" x2="120" y2="100"/>
+    <line x1="60" y1="180" x2="140" y2="240"/>
+  </g>
+
+  <!-- highlighted "ego" node and its edges in accent -->
+  <g stroke="#1f3a5f" stroke-width="1.5" fill="none">
+    <line x1="200" y1="170" x2="120" y2="100"/>
+    <line x1="200" y1="170" x2="280" y2="110"/>
+    <line x1="200" y1="170" x2="140" y2="240"/>
+    <line x1="200" y1="170" x2="280" y2="240"/>
+  </g>
+
+  <!-- nodes -->
+  <g>
+    <circle cx="60" cy="180" r="7" fill="#9c9c95"/>
+    <circle cx="120" cy="100" r="8" fill="#6b6b6b"/>
+    <circle cx="280" cy="110" r="8" fill="#6b6b6b"/>
+    <circle cx="140" cy="240" r="8" fill="#6b6b6b"/>
+    <circle cx="280" cy="240" r="8" fill="#6b6b6b"/>
+    <circle cx="220" cy="300" r="7" fill="#9c9c95"/>
+    <circle cx="320" cy="320" r="7" fill="#9c9c95"/>
+
+    <!-- ego node, distinctive -->
+    <circle cx="200" cy="170" r="11" fill="#1f3a5f"/>
+    <circle cx="200" cy="170" r="15" fill="none" stroke="#1f3a5f" stroke-width="1" opacity="0.4"/>
+  </g>
+
+  <!-- labels -->
+  <text x="200" y="155" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#1f3a5f" font-weight="500">ego</text>
+  <text x="200" y="380" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#6b6b6b" letter-spacing="1.5">COLLABORATION NETWORK</text>
+</svg>

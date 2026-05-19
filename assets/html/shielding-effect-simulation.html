@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Shielding Effect — Interactive Simulation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f1ede3;
+    --panel:#faf8f1;
+    --ink:#21251f;
+    --muted:#73776d;
+    --line:#d8d3c4;
+    --women:#0f7d7d;       /* teal  */
+    --men:#d97f2a;         /* ochre */
+    --line-int:#aaaaa4;    /* light grey — "integrated workplaces" line */
+    --line-seg:#3c3f3a;    /* dark grey  — "segregated workplaces" line */
+    --shield:#2f7d4f;      /* green — shielding band + accents */
+    --shield-soft:rgba(47,125,79,.16);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:38px 22px 64px}
+
+  /* ---- header ---- */
+  .kicker{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--shield);margin:0 0 10px;
+  }
+  h1{
+    font-family:"Fraunces",serif;
+    font-weight:500;font-size:clamp(28px,4.6vw,46px);
+    line-height:1.08;letter-spacing:-.012em;margin:0 0 14px;
+  }
+  h1 em{font-style:italic;color:var(--shield)}
+  .lede{font-size:16.5px;color:var(--muted);max-width:62ch;margin:0}
+  .rule{height:1px;background:var(--line);margin:30px 0 26px}
+
+  /* ---- controls ---- */
+  .controls{
+    display:flex;flex-wrap:wrap;gap:22px 30px;align-items:flex-end;
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:13px;padding:18px 22px;margin-bottom:22px;
+  }
+  .ctrl{display:flex;flex-direction:column;gap:7px;min-width:172px;flex:1}
+  .ctrl label{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+    display:flex;justify-content:space-between;align-items:baseline;
+  }
+  .ctrl label .sym{text-transform:none}
+  .ctrl label b{
+    font-weight:500;color:var(--ink);font-size:13px;
+    background:#ece7d8;border-radius:5px;padding:1px 7px;
+  }
+  input[type=range]{
+    -webkit-appearance:none;appearance:none;width:100%;height:4px;
+    background:var(--line);border-radius:4px;outline:none;margin:6px 0 2px;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;width:17px;height:17px;border-radius:50%;
+    background:var(--shield);border:2.5px solid var(--panel);
+    box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:pointer;
+  }
+  input[type=range]::-moz-range-thumb{
+    width:17px;height:17px;border-radius:50%;background:var(--shield);
+    border:2.5px solid var(--panel);cursor:pointer;
+  }
+  .hint{font-size:11.5px;color:var(--muted);font-style:italic}
+  .btns{display:flex;gap:9px}
+  button{
+    font-family:"IBM Plex Sans",sans-serif;font-weight:500;font-size:13.5px;
+    padding:9px 17px;border-radius:8px;cursor:pointer;border:1px solid var(--ink);
+    background:var(--ink);color:var(--paper);transition:transform .06s ease,opacity .15s;
+  }
+  button.ghost{background:transparent;color:var(--ink)}
+  button:active{transform:translateY(1px)}
+  button:disabled{opacity:.4;cursor:default}
+  .iter{
+    font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted);
+    align-self:center;white-space:nowrap;
+  }
+  .iter b{color:var(--ink)}
+
+  /* ---- worlds ---- */
+  .worlds{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+  .world{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:13px;padding:15px 16px 13px;
+  }
+  .world h3{
+    font-family:"Fraunces",serif;font-weight:500;font-size:17px;
+    margin:0 0 2px;letter-spacing:-.01em;
+  }
+  .world .sub{font-size:12px;color:var(--muted);margin:0 0 11px}
+  .world canvas{width:100%;display:block;border-radius:7px}
+  .readout{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin-top:11px;padding-top:10px;border-top:1px dashed var(--line);
+  }
+  .readout .lab{font-size:11.5px;color:var(--muted)}
+  .readout .val{
+    font-family:"IBM Plex Mono",monospace;font-size:21px;font-weight:500;
+  }
+
+  /* ---- chart ---- */
+  .chartcard{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:13px;padding:18px 20px 16px;
+  }
+  .chartcard h3{
+    font-family:"Fraunces",serif;font-weight:500;font-size:18px;
+    margin:0 0 3px;letter-spacing:-.01em;
+  }
+  .chartcard .sub{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  #chart{width:100%;display:block}
+  .verdict{
+    margin-top:14px;padding:13px 16px;border-radius:9px;
+    background:var(--shield-soft);border:1px solid rgba(47,125,79,.32);
+    font-size:14.5px;
+  }
+  .verdict b{color:var(--shield)}
+  .verdict .big{
+    font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:17px;color:var(--shield);
+  }
+
+  /* ---- legend ---- */
+  .legend{
+    display:flex;flex-wrap:wrap;gap:7px 22px;margin:14px 0 0;
+    font-size:12.5px;color:var(--muted);
+  }
+  .legend span{display:flex;align-items:center;gap:7px}
+  .swatch{width:13px;height:13px;border-radius:50%;flex:none}
+  .dash{width:22px;height:0;flex:none;border-top:2.5px solid currentColor}
+
+  /* ---- explainer ---- */
+  .explain{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:26px 40px}
+  .explain h4{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--shield);margin:0 0 8px;
+  }
+  .explain p{font-size:13.7px;color:#4a4e44;margin:0 0 11px}
+  .explain p:last-child{margin-bottom:0}
+  .foot{
+    margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--muted);
+  }
+  .foot code{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+    background:#ece7d8;padding:1px 6px;border-radius:4px;
+  }
+
+  @media(max-width:720px){
+    .worlds{grid-template-columns:1fr}
+    .explain{grid-template-columns:1fr}
+    .ctrl{min-width:140px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">Interactive · Agent-based model</p>
+  <h1>Why does <em>workplace</em> segregation make<br>occupations <em>less</em> segregated?</h1>
+  <p class="lede">Two simulated labour markets run side by side. The workers, their preferences,
+  and the occupations are identical — the only difference is whether <em>workplaces within</em>
+  each occupation are gender-mixed or gender-sorted. Watch how occupational segregation diverges.
+  That gap is the <strong>shielding effect</strong>.</p>
+
+  <div class="rule"></div>
+
+  <div class="controls">
+    <div class="ctrl">
+      <label><span class="lbl">Homophily strength&nbsp;·&nbsp;<span class="sym">&alpha;</span></span> <b id="aVal">1.50</b></label>
+      <input type="range" id="alpha" min="0" max="2" step="0.05" value="1.5">
+      <span class="hint">How strongly workers prefer same-gender colleagues</span>
+    </div>
+    <div class="ctrl">
+      <label><span class="lbl">Workplace vs. occupation&nbsp;·&nbsp;<span class="sym">&eta;</span></span> <b id="eVal">1.00</b></label>
+      <input type="range" id="eta" min="0" max="2" step="0.05" value="1">
+      <span class="hint">&eta;&nbsp;&gt;&nbsp;1: workplace matters more · &eta;&nbsp;&lt;&nbsp;1: occupation matters more</span>
+    </div>
+    <div class="ctrl" style="min-width:120px;flex:0">
+      <label>Speed</label>
+      <input type="range" id="speed" min="1" max="5" step="1" value="3">
+      <span class="hint">Iterations per second</span>
+    </div>
+    <div class="ctrl" style="flex:0;min-width:auto">
+      <div class="btns">
+        <button id="play">Pause</button>
+        <button id="reset" class="ghost">Reset</button>
+      </div>
+      <span class="iter">Iteration <b id="iterN">0</b> / <span id="iterMax">180</span></span>
+    </div>
+  </div>
+
+  <div class="worlds">
+    <div class="world">
+      <h3>Integrated workplaces</h3>
+      <p class="sub">Within each occupation, workplaces are gender-mixed&nbsp;&nbsp;(D&#x02B7;&nbsp;&approx;&nbsp;0.1)</p>
+      <canvas id="cInt"></canvas>
+      <div class="readout">
+        <span class="lab">Occupational segregation&nbsp;D&#x1D52;</span>
+        <span class="val" id="doInt" style="color:var(--ink)">0.00</span>
+      </div>
+    </div>
+    <div class="world">
+      <h3>Segregated workplaces</h3>
+      <p class="sub">Within each occupation, workplaces are gender-sorted&nbsp;&nbsp;(D&#x02B7;&nbsp;&approx;&nbsp;0.9)</p>
+      <canvas id="cSeg"></canvas>
+      <div class="readout">
+        <span class="lab">Occupational segregation&nbsp;D&#x1D52;</span>
+        <span class="val" id="doSeg" style="color:var(--ink)">0.00</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chartcard">
+    <h3>Occupational segregation over time</h3>
+    <p class="sub">Dissimilarity index of the two worlds. The shaded band is the shielding effect.</p>
+    <canvas id="chart"></canvas>
+    <div class="legend">
+      <span><span class="dash" style="color:var(--line-int)"></span>Integrated workplaces</span>
+      <span><span class="dash" style="color:var(--line-seg)"></span>Segregated workplaces</span>
+      <span><span class="swatch" style="background:var(--shield-soft);border:1px solid rgba(47,125,79,.4)"></span>Shielding effect (the gap)</span>
+      <span><span class="swatch" style="background:var(--women)"></span>Women</span>
+      <span><span class="swatch" style="background:var(--men)"></span>Men</span>
+    </div>
+    <div class="verdict" id="verdict">Press <b>Play</b> and watch the two curves separate.</div>
+  </div>
+
+  <div class="explain">
+    <div>
+      <h4>The intuition</h4>
+      <p>Workers tend to prefer colleagues of their own gender. When someone becomes a
+      minority in their occupation, that pressure normally pushes them to leave — which
+      makes the occupation even more lopsided, and so on.</p>
+      <p>But people don't experience an occupation in the abstract: they experience their own
+      workplace. If that workplace still has plenty of same-gender colleagues, the worker is
+      <em>shielded</em> from the wider imbalance and stays put.</p>
+    </div>
+    <div>
+      <h4>Why the surprise</h4>
+      <p>Counter-intuitively, this means workplace gender-sorting can <em>dampen</em>
+      occupational segregation. Sorted workplaces give minority workers local pockets where
+      their preferences are met, so they don't exit the occupation entirely.</p>
+      <p>The effect is structurally asymmetric: it works mainly by keeping occupational
+      <em>minorities</em> in place, with little offsetting effect on the majority — so it
+      doesn't cancel out in the aggregate.</p>
+    </div>
+  </div>
+
+  <p class="foot">
+    A simplified, in-browser illustration of the agent-based model in
+    <em>Rottenkolber, Arvidsson, Brand&eacute;n &amp; Tak&aacute;cs — "The Shielding Effect:
+    How workplace segregation can countervail occupational segregation."</em>
+    Agents choose an occupation&times;workplace combination by multinomial logit over the
+    paper's utility function (SI&#8209;1), with inertia coefficients
+    <code>&beta;_SW=5</code>, <code>&beta;_SO=2</code>, <code>&beta;_SWO=1.5</code>.
+    Population and grid are scaled down for live animation; the qualitative dynamics match.
+  </p>
+
+</div>
+
+<script>
+"use strict";
+/* ============================================================
+   Agent-based model — shielding effect
+   Faithful (scaled) port of SI-1 of the paper.
+   ============================================================ */
+
+// ---- structure ----
+const O = 8;            // occupations
+const WP = 5;           // workplaces per occupation
+const NCELLS = O * WP;  // 40 occupation x workplace cells
+const N = 480;          // agents (240 women / 240 men)
+const MAX_ITER = 180;
+
+// ---- fixed coefficients (paper SI-2) ----
+const B_SW = 5.0;       // staying in same workplace
+const B_SO = 2.0;       // staying in same occupation
+const B_SWO = 1.5;      // staying in both
+const B_X = 0.5;        // occupational attribute
+
+// ---- tunable ----
+let alpha = 1.5;        // homophily strength
+let eta   = 1.0;        // workplace vs occupation weight
+
+// initial male count per occupation (sums to 240 -> D_O start ~ 0.23)
+const MALE0 = [40, 20, 38, 22, 36, 24, 34, 26];
+
+let occAttr;            // per-occupation attribute (same in both worlds)
+
+// ---- tiny seeded RNG ----
+function mulberry32(seed){
+  return function(){
+    seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+let rng;
+
+/* ---- a "world" is one labour market ----
+   agent: {g:0|1 (0=women,1=men), occ, wp, x,y,tx,ty,r} */
+function buildWorld(arrangement){
+  const agents = [];
+  for(let j=0;j<O;j++){
+    const m = MALE0[j], f = 60 - m;          // 60 agents per occupation
+    // gender list for this occupation: women first, then men
+    const genders = [];
+    for(let i=0;i<f;i++) genders.push(0);
+    for(let i=0;i<m;i++) genders.push(1);
+    // assign workplaces
+    for(let s=0;s<60;s++){
+      const g = genders[s];
+      let wp;
+      if(arrangement === "segregated"){
+        // pour sequentially: fills each 12-slot workplace with one gender block
+        wp = Math.floor(s/12);
+      } else {
+        // integrated: spread each gender evenly across the 5 workplaces
+        const idxInGender = (g===0) ? s : s - f;
+        wp = idxInGender % WP;
+      }
+      agents.push({g:g, occ:j, wp:wp, x:0,y:0,tx:0,ty:0,r:2});
+    }
+  }
+  return {agents:agents, hist:[]};
+}
+
+let worldInt, worldSeg, iter, running;
+
+function initSim(seed){
+  rng = mulberry32(seed);
+  occAttr = [];
+  for(let j=0;j<O;j++) occAttr.push((rng()*2-1));   // in [-1,1]
+  worldInt = buildWorld("integrated");
+  worldSeg = buildWorld("segregated");
+  iter = 0;
+  worldInt.hist = [dissimOcc(worldInt)];
+  worldSeg.hist = [dissimOcc(worldSeg)];
+  layoutWorld(worldInt, cInt);
+  layoutWorld(worldSeg, cSeg);
+  // snap dots to their starting slots
+  for(const w of [worldInt,worldSeg])
+    for(const a of w.agents){ a.x=a.tx; a.y=a.ty; }
+}
+
+// ---- segregation: Duncan dissimilarity index ----
+function dissimOcc(world){
+  const m=new Float64Array(O), f=new Float64Array(O);
+  for(const a of world.agents){ if(a.g===1) m[a.occ]++; else f[a.occ]++; }
+  let s=0; for(let j=0;j<O;j++) s += Math.abs(m[j]-f[j]);
+  return 0.5 * s / 240;            // total women = total men = 240
+}
+function dissimWp(world){
+  const m=new Float64Array(NCELLS), f=new Float64Array(NCELLS);
+  for(const a of world.agents){ const c=a.occ*WP+a.wp; if(a.g===1) m[c]++; else f[c]++; }
+  let s=0; for(let c=0;c<NCELLS;c++) s += Math.abs(m[c]-f[c]);
+  return 0.5 * s / 240;
+}
+
+// ---- one simulation step for one world ----
+function stepWorld(world){
+  const ag = world.agents;
+  // 1. counts -> same-gender shares (computed once, start of iteration)
+  const mO=new Float64Array(O), nO=new Float64Array(O);
+  const mC=new Float64Array(NCELLS), nC=new Float64Array(NCELLS);
+  for(const a of ag){
+    nO[a.occ]++; if(a.g===1) mO[a.occ]++;
+    const c=a.occ*WP+a.wp; nC[c]++; if(a.g===1) mC[c]++;
+  }
+  // sgOcc[occ][gender] , sgCell[cell][gender]
+  const sgOcc=[], sgCell=[];
+  for(let j=0;j<O;j++){
+    const tot=nO[j]||1, ms=mO[j]/tot;
+    sgOcc.push([1-ms, ms]);                       // [women-share, men-share]
+  }
+  for(let c=0;c<NCELLS;c++){
+    const tot=nC[c]||1, ms=mC[c]/tot;
+    sgCell.push([1-ms, ms]);
+  }
+  // 2. every agent re-chooses (synchronous update)
+  const choice=new Int16Array(N);
+  const U=new Float64Array(NCELLS);
+  const bWP = eta*alpha;        // workplace homophily coefficient
+  const bOC = alpha;            // occupation homophily coefficient
+  for(let i=0;i<N;i++){
+    const a=ag[i], g=a.g, jc=a.occ, kc=a.occ*WP+a.wp;
+    const spWpOrigin = sgCell[kc][g];
+    const spOccOrigin = sgOcc[jc][g];
+    let mx=-1e9;
+    for(let j=0;j<O;j++){
+      const stayOcc = (j===jc)?1:0;
+      const occH = bOC*sgOcc[j][g] + B_X*occAttr[j] + B_SO*stayOcc
+                 + bOC*stayOcc*spOccOrigin;
+      for(let k=0;k<WP;k++){
+        const c=j*WP+k;
+        const stayWp = (c===kc)?1:0;
+        let u = occH
+              + bWP*sgCell[c][g]
+              + B_SW*stayWp
+              + B_SWO*stayWp*stayOcc
+              + bWP*stayWp*spWpOrigin;
+        U[c]=u; if(u>mx) mx=u;
+      }
+    }
+    // softmax + multinomial sample
+    let sum=0;
+    for(let c=0;c<NCELLS;c++){ const e=Math.exp(U[c]-mx); U[c]=e; sum+=e; }
+    let r=rng()*sum, pick=NCELLS-1;
+    for(let c=0;c<NCELLS;c++){ r-=U[c]; if(r<=0){ pick=c; break; } }
+    choice[i]=pick;
+  }
+  // 3. apply moves
+  for(let i=0;i<N;i++){
+    ag[i].occ = Math.floor(choice[i]/WP);
+    ag[i].wp  = choice[i]%WP;
+  }
+  world.hist.push(dissimOcc(world));
+  if(world.hist.length>MAX_ITER+1) world.hist.shift();
+}
+
+/* ============================================================
+   Rendering
+   ============================================================ */
+const cInt  = document.getElementById("cInt");
+const cSeg  = document.getElementById("cSeg");
+const chart = document.getElementById("chart");
+const ctxI = cInt.getContext("2d");
+const ctxS = cSeg.getContext("2d");
+const ctxC = chart.getContext("2d");
+
+const COL = {
+  women:"#0f7d7d", men:"#d97f2a",
+  lineInt:"#aaaaa4", lineSeg:"#3c3f3a", shield:"#2f7d4f",
+  ink:"#21251f", line:"#d8d3c4", muted:"#73776d",
+  panel:"#faf8f1"
+};
+
+function fitCanvas(cv, ctx, aspect){
+  const dpr = window.devicePixelRatio || 1;
+  const w = cv.clientWidth || 400;
+  const h = w / aspect;
+  cv.style.height = h+"px";
+  cv.width = Math.round(w*dpr);
+  cv.height = Math.round(h*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  return {w:w, h:h};
+}
+
+// compute target slot positions for every agent in a world
+function layoutWorld(world, cv){
+  const dpr = window.devicePixelRatio || 1;
+  const w = (cv.width/dpr) || cv.clientWidth || 400;
+  const h = (cv.height/dpr) || (w/1.5);
+  const pad=9, headH=17;
+  const colW=(w-2*pad)/O;
+  const gridTop=pad+headH;
+  const cellH=(h-gridTop-pad)/WP;
+  // bucket agents per cell
+  const buckets=[]; for(let c=0;c<NCELLS;c++) buckets.push([]);
+  for(const a of world.agents) buckets[a.occ*WP+a.wp].push(a);
+  for(let c=0;c<NCELLS;c++){
+    const j=Math.floor(c/WP), k=c%WP;
+    const cx=pad+j*colW, cy=gridTop+k*cellH;
+    const ip=3, iw=colW-2*ip, ih=cellH-2*ip;
+    const list=buckets[c];
+    list.sort((p,q)=>p.g-q.g);                 // women block, then men block
+    const n=list.length;
+    if(n===0) continue;
+    let cols=Math.max(1,Math.round(Math.sqrt(n*iw/ih)));
+    let rows=Math.ceil(n/cols);
+    const sw=iw/cols, sh=ih/rows;
+    const r=Math.max(1.2,Math.min(4.6,Math.min(sw,sh)*0.34));
+    for(let t=0;t<n;t++){
+      const a=list[t], rr=Math.floor(t/cols), cc=t%cols;
+      a.tx=cx+ip+sw*(cc+0.5);
+      a.ty=cy+ip+sh*(rr+0.5);
+      a.r=r;
+    }
+  }
+}
+
+function lerpColor(a,b,t){    // a,b as [r,g,b]
+  return [a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t, a[2]+(b[2]-a[2])*t];
+}
+const RGB_W=[15,125,125], RGB_M=[217,127,42];
+
+function drawWorld(world, cv, ctx){
+  const dpr=window.devicePixelRatio||1;
+  const w=cv.width/dpr, h=cv.height/dpr;
+  ctx.clearRect(0,0,w,h);
+  const pad=9, headH=17;
+  const colW=(w-2*pad)/O;
+  const gridTop=pad+headH;
+  const cellH=(h-gridTop-pad)/WP;
+
+  // per-occupation male share for the header tint
+  const mO=new Float64Array(O), nO=new Float64Array(O);
+  for(const a of world.agents){ nO[a.occ]++; if(a.g===1) mO[a.occ]++; }
+
+  for(let j=0;j<O;j++){
+    const cx=pad+j*colW;
+    // header bar tinted toward the dominant gender
+    const ms = nO[j] ? mO[j]/nO[j] : 0.5;
+    const tc = lerpColor(RGB_W,RGB_M,ms);
+    ctx.fillStyle=`rgba(${tc[0]|0},${tc[1]|0},${tc[2]|0},0.5)`;
+    ctx.fillRect(cx+1,pad,colW-2,headH-4);
+    ctx.fillStyle="#fff";
+    ctx.font="600 9px 'IBM Plex Mono', monospace";
+    ctx.textAlign="center"; ctx.textBaseline="middle";
+    ctx.fillText("OCC "+(j+1), cx+colW/2, pad+(headH-4)/2);
+    // workplace cells
+    for(let k=0;k<WP;k++){
+      const cy=gridTop+k*cellH;
+      ctx.fillStyle="rgba(255,255,255,0.55)";
+      ctx.strokeStyle=COL.line; ctx.lineWidth=1;
+      roundRect(ctx,cx+1.5,cy+1.5,colW-3,cellH-3,4);
+      ctx.fill(); ctx.stroke();
+    }
+  }
+  // dots
+  for(const a of world.agents){
+    ctx.beginPath();
+    ctx.arc(a.x,a.y,a.r,0,6.2832);
+    ctx.fillStyle = a.g===1 ? COL.men : COL.women;
+    ctx.fill();
+  }
+}
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+
+function drawChart(){
+  const dpr=window.devicePixelRatio||1;
+  const w=chart.width/dpr, h=chart.height/dpr;
+  const ctx=ctxC;
+  ctx.clearRect(0,0,w,h);
+  const mL=42,mR=14,mT=12,mB=26;
+  const pw=w-mL-mR, ph=h-mT-mB;
+  const yMax=0.95;
+  const X=t=>mL+pw*(t/MAX_ITER);
+  const Y=v=>mT+ph*(1-v/yMax);
+
+  // gridlines + y labels
+  ctx.strokeStyle=COL.line; ctx.lineWidth=1;
+  ctx.fillStyle=COL.muted;
+  ctx.font="10px 'IBM Plex Mono', monospace";
+  ctx.textAlign="right"; ctx.textBaseline="middle";
+  for(let v=0;v<=0.8001;v+=0.2){
+    ctx.beginPath(); ctx.moveTo(mL,Y(v)); ctx.lineTo(w-mR,Y(v)); ctx.stroke();
+    ctx.fillText(v.toFixed(1),mL-7,Y(v));
+  }
+  // x label
+  ctx.textAlign="center"; ctx.textBaseline="top";
+  ctx.fillText("iteration",mL+pw/2,h-12);
+
+  const hi=worldInt.hist, hs=worldSeg.hist;
+  const nPts=Math.min(hi.length,hs.length);
+  if(nPts>1){
+    // shaded shielding band
+    ctx.beginPath();
+    for(let t=0;t<nPts;t++){ const x=X(t),y=Y(hi[t]); t?ctx.lineTo(x,y):ctx.moveTo(x,y); }
+    for(let t=nPts-1;t>=0;t--){ ctx.lineTo(X(t),Y(hs[t])); }
+    ctx.closePath();
+    ctx.fillStyle="rgba(47,125,79,0.16)";
+    ctx.fill();
+    // integrated line
+    drawLine(ctx,hi,nPts,X,Y,COL.lineInt,2.4);
+    // segregated line
+    drawLine(ctx,hs,nPts,X,Y,COL.lineSeg,2.4);
+    // end dots
+    endDot(ctx,X(nPts-1),Y(hi[nPts-1]),COL.lineInt);
+    endDot(ctx,X(nPts-1),Y(hs[nPts-1]),COL.lineSeg);
+  }
+  // axis frame
+  ctx.strokeStyle=COL.ink; ctx.lineWidth=1.2;
+  ctx.beginPath(); ctx.moveTo(mL,mT); ctx.lineTo(mL,mT+ph); ctx.lineTo(w-mR,mT+ph); ctx.stroke();
+}
+function drawLine(ctx,arr,n,X,Y,color,lw){
+  ctx.beginPath();
+  for(let t=0;t<n;t++){ const x=X(t),y=Y(arr[t]); t?ctx.lineTo(x,y):ctx.moveTo(x,y); }
+  ctx.strokeStyle=color; ctx.lineWidth=lw;
+  ctx.lineJoin="round"; ctx.lineCap="round";
+  ctx.stroke();
+}
+function endDot(ctx,x,y,c){
+  ctx.beginPath(); ctx.arc(x,y,3.4,0,6.2832);
+  ctx.fillStyle=c; ctx.fill();
+  ctx.strokeStyle=COL.panel; ctx.lineWidth=1.5; ctx.stroke();
+}
+
+/* ============================================================
+   Loop + UI
+   ============================================================ */
+const elAlpha=document.getElementById("alpha");
+const elEta=document.getElementById("eta");
+const elSpeed=document.getElementById("speed");
+const elPlay=document.getElementById("play");
+const elReset=document.getElementById("reset");
+const elAVal=document.getElementById("aVal");
+const elEVal=document.getElementById("eVal");
+const elIterN=document.getElementById("iterN");
+const elDoInt=document.getElementById("doInt");
+const elDoSeg=document.getElementById("doSeg");
+const elVerdict=document.getElementById("verdict");
+document.getElementById("iterMax").textContent=MAX_ITER;
+
+let lastTick=0;
+
+function tickInterval(){ return 1000 / (+elSpeed.value); }
+
+function simTick(){
+  if(iter>=MAX_ITER){ running=false; elPlay.textContent="Play"; updateVerdict(true); return; }
+  stepWorld(worldInt);
+  stepWorld(worldSeg);
+  iter++;
+  layoutWorld(worldInt,cInt);
+  layoutWorld(worldSeg,cSeg);
+  elIterN.textContent=iter;
+  updateReadouts();
+}
+
+function updateReadouts(){
+  const di=worldInt.hist[worldInt.hist.length-1];
+  const ds=worldSeg.hist[worldSeg.hist.length-1];
+  elDoInt.textContent=di.toFixed(2);
+  elDoSeg.textContent=ds.toFixed(2);
+  updateVerdict(false);
+}
+
+function updateVerdict(done){
+  const di=worldInt.hist[worldInt.hist.length-1];
+  const ds=worldSeg.hist[worldSeg.hist.length-1];
+  const gap=di-ds;
+  if(iter<3){
+    elVerdict.innerHTML='Press <b>Play</b> and watch the two curves separate.';
+    return;
+  }
+  if(gap<=0.012){
+    elVerdict.innerHTML='So far the two worlds segregate at <b>about the same rate</b> — '+
+      'try raising homophily (&alpha;) or the workplace weight (&eta;) to bring out shielding.';
+    return;
+  }
+  const pct=Math.round(100*gap/Math.max(di,1e-6));
+  elVerdict.innerHTML=
+    (done?'Run complete. ':'')+
+    'Segregating workplaces has <b>shielded</b> the occupations: occupational segregation is '+
+    '<span class="big">'+pct+'% lower</span> ('+ds.toFixed(2)+' vs. '+di.toFixed(2)+') '+
+    'than when the same workers sit in mixed workplaces.';
+}
+
+function frame(ts){
+  if(running && ts-lastTick>=tickInterval()){ lastTick=ts; simTick(); }
+  // glide dots toward targets
+  for(const w of [worldInt,worldSeg])
+    for(const a of w.agents){
+      a.x += (a.tx-a.x)*0.22;
+      a.y += (a.ty-a.y)*0.22;
+    }
+  drawWorld(worldInt,cInt,ctxI);
+  drawWorld(worldSeg,cSeg,ctxS);
+  drawChart();
+  requestAnimationFrame(frame);
+}
+
+function resizeAll(){
+  fitCanvas(cInt,ctxI,1.55);
+  fitCanvas(cSeg,ctxS,1.55);
+  fitCanvas(chart,ctxC,3.0);
+  if(worldInt){ layoutWorld(worldInt,cInt); layoutWorld(worldSeg,cSeg); }
+}
+
+// ---- events ----
+elAlpha.addEventListener("input",()=>{ alpha=+elAlpha.value; elAVal.textContent=alpha.toFixed(2); });
+elEta.addEventListener("input",()=>{ eta=+elEta.value; elEVal.textContent=eta.toFixed(2); });
+elPlay.addEventListener("click",()=>{
+  if(iter>=MAX_ITER){ doReset(); }
+  running=!running;
+  elPlay.textContent=running?"Pause":"Play";
+});
+elReset.addEventListener("click",doReset);
+function doReset(){
+  initSim((Math.random()*1e9)|0);
+  elIterN.textContent="0";
+  running=true; elPlay.textContent="Pause";
+  updateReadouts();
+}
+window.addEventListener("resize",resizeAll);
+
+// ---- boot ----
+resizeAll();
+initSim((Math.random()*1e9)|0);
+updateReadouts();
+running=true; elPlay.textContent="Pause";
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
