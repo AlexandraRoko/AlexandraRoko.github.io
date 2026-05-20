@@ -30,7 +30,7 @@ It can be tempting to picture careers as a clean merit contest: work hard, acqui
   <dd>Social network analysis · agent-based modelling · NLP · large scale register-data · experiments</dd>
 
   <dt>Background</dt>
-  <dd>MSc Social Data Science (<a href="https://www.oii.ox.ac.uk/">Oxford</a>) · MPP Public Policy (Berlin) · BSc Physics + Geography (Heidelberg)</dd>
+  <dd>MSc Social Data Science (<a href="https://www.oii.ox.ac.uk/">Oxford</a>) · MPP Public Policy (<a href="https://www.hertie-school.org/en/">Berlin</a>) · BSc Physics + Geography (<a href="https://www.uni-heidelberg.de/en">Heidelberg</a>)</dd>
 
   <dt>Supervised by</dt>
   <dd><a href="https://liu.se/en/employee/karta65">Károly Takács</a> · <a href="https://martin-arvidsson.github.io/">Martin Arvidsson</a> · <a href="https://sociology.cornell.edu/michael-macy">Michael Macy</a></dd>

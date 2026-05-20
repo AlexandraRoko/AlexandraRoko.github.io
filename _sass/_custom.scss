@@ -919,27 +919,37 @@ pre {
   }
 }
 
-// ---------- Talks & presentations list ----------
+// ---------- Activity sections (talks, teaching, beyond academia) ----------
+// Authored as Markdown definition lists in _includes/activities/*.md and
+// rendered with markdownify. Kramdown produces <h3> sub-headings and
+// <dl><dt>year</dt><dd>entry</dd></dl> pairs.
 
-.talks-subhead {
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--spark-coral-deep);
-  margin: 1.6rem 0 0.75rem;
+.activity-md {
+  // Sub-headings (### in Markdown) — coral, matching the bio labels
+  h3,
+  h4 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--spark-coral-deep);
+    margin: 1.6rem 0 0.75rem;
+    padding-bottom: 0;
+    border-bottom: none;
 
-  &:first-child {
-    margin-top: 0.2rem;
+    &:first-child {
+      margin-top: 0.2rem;
+    }
   }
-}
 
-.talks-list {
-  display: grid;
-  grid-template-columns: 4.25rem 1fr;
-  column-gap: 1.5rem;
-  row-gap: 0.6rem;
-  margin: 0 0 0.5rem;
+  // Each definition list = year column + content column
+  dl {
+    display: grid;
+    grid-template-columns: 4.25rem 1fr;
+    column-gap: 1.5rem;
+    row-gap: 0.6rem;
+    margin: 0 0 0.5rem;
+  }
 
   dt {
     font-size: 0.88rem;
@@ -955,13 +965,18 @@ pre {
     font-size: 0.92rem;
     line-height: 1.5;
     color: var(--global-text-color);
-  }
-}
 
-@media (max-width: 575px) {
-  .talks-list {
-    grid-template-columns: 1fr;
-    row-gap: 0.15rem;
+    // Neutralise <p> wrapping from "loose" definition lists
+    p {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 575px) {
+    dl {
+      grid-template-columns: 1fr;
+      row-gap: 0.15rem;
+    }
 
     dt {
       padding-top: 0.5rem;
