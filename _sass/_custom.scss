@@ -363,14 +363,16 @@ h2#publications {
     align-items: center;
     gap: 0.4rem;
     border-bottom: none !important;
-    transition: color 0.15s ease;
+    transition: transform 0.15s ease;
 
-    i {
-      font-size: 0.95rem;
+    svg {
+      width: 18px;
+      height: 18px;
+      display: block;
     }
 
     &:hover {
-      color: var(--global-theme-color);
+      transform: translateY(-1px);
     }
   }
 }
