@@ -1,13 +1,3 @@
-- title: General Information
-  type: map
-  contents:
-    - name: Full Name
-      value: Alexandra Rottenkolber
-    #- name: Date of Birth
-    #  value: 14th March 1879
-    - name: Languages
-      value: English, German
-
 - title: Education
   type: time_table
   contents:
@@ -23,10 +13,14 @@
     - title: MSc Social Data Science
       institution: Oxford University, UK
       year: 2020 - 2021
-    - title: MPP Public Policy 
+    - title: MPP Public Policy
       institution: Hertie School, Berlin, Germany
       year: 2019 - 2022
     - title: BSc Physics and Geography
       institution: Heidelberg University, Germany
       year: 2014 - 2018
 
+- title: Languages
+  type: list
+  contents:
+    - German (mother tongue) · English (fluent) · I also learned Latin and Ancient Greek at one point ;)
