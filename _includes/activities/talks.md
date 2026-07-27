@@ -24,6 +24,9 @@
 
 ### Conference presentations
 
+2026
+: INAS 2026, University of Oxford, Nuffield College, Oxford, UK
+
 2025
 : IC2S2 2025, Linköping University, Norrköping
 
